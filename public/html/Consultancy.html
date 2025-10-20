@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultancy Request</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <link rel="stylesheet" href="../css/header.css" />
+    <link rel="stylesheet" href="../css/Consultancy.css" />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="spinner"></div>
+    </div>
+
+    <header class="header bg-gray-200">
+      <div
+        class="header-container max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-20"
+      >
+        <!-- Logo -->
+        <div
+          class="logo flex items-center p-2 rounded-2xl shadow-neumorphic-light"
+        >
+          <img
+            src="../images/logo.png"
+            alt="GrowTech Logo"
+            class="w-10 h-10 rounded-full mr-2"
+          />
+          <span class="text-xl font-bold text-gray-800">GrowTech</span>
+        </div>
+
+        <!-- ✅ Desktop Menu -->
+        <ul class="hidden md:flex gap-8 font-medium text-gray-700">
+          <li><a href="../index.html" class="hover:text-blue-600">Home</a></li>
+          <li>
+            <a href="../html/digital-solutions.html" class="hover:text-blue-600"
+              >Digital Solutions</a
+            >
+          </li>
+          <li>
+            <a href="../html/computer-repaier.html" class="hover:text-blue-600"
+              >Computer Hardware Repairing</a
+            >
+          </li>
+          <li>
+            <a href="../html/Consultancy.html" class="hover:text-blue-600"
+              >Consultancy</a
+            >
+          </li>
+          <li>
+            <a href="../html/contect.html" class="hover:text-blue-600"
+              >Contact</a
+            >
+          </li>
+        </ul>
+
+        <!-- ✅ Hamburger Button (Mobile only) -->
+        <button
+          class="menu-toggle md:hidden"
+          id="menu-toggle"
+          title="Open navigation menu"
+        >
+          <span class="hamburger"></span>
+        </button>
+      </div>
+
+      <!-- ✅ Sidebar Navbar (Mobile) -->
+      <nav class="navbar md:hidden" id="navbar">
+        <div class="navbar-logo flex items-center mb-8">
+          <img
+            src="../images/logo.png"
+            alt="GrowTech Logo"
+            class="w-10 h-10 rounded-full mr-2"
+          />
+          <span class="text-xl font-bold text-gray-800">GrowTech</span>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <ul class="navbar-menu flex flex-col gap-6">
+          <li><a href="../index.html">Home</a></li>
+          <li>
+            <a href="../html/digital-solutions.html">Digital Solutions</a>
+          </li>
+          <li>
+            <a href="../html/computer-repaier.html"
+              >Computer Hardware Repairing</a
+            >
+          </li>
+          <li><a href="../html/Consultancy.html">Consultancy</a></li>
+          <li><a href="../html/contect.html">Contact</a></li>
+        </ul>
+
+        <!-- Bottom -->
+        <div class="navbar-bottom mt-10">
+          <div class="navbar-social flex gap-3 mb-4">
+            <a href="#"
+              ><img src="../images/facebook.png" alt="Facebook" width="35"
+            /></a>
+            <a href="#"
+              ><img src="../images/youtube.png" alt="YouTube" width="35"
+            /></a>
+            <a href="#"><img src="../images/x.png" alt="X" width="35" /></a>
+            <a href="#"
+              ><img src="../images/instagram.png" alt="Instagram" width="35"
+            /></a>
+          </div>
+
+          <div class="navbar-contact text-sm text-gray-700 mb-4">
+            <p><i class="fas fa-phone-alt"></i> +91 90888 79219</p>
+            <p><i class="fas fa-envelope"></i> growtechofficial004@gmail.com</p>
+          </div>
+
+          <div class="navbar-social flex gap-3 justify-center">
+            <a href="tel:+919088879219"
+              ><img src="../images/call.png" width="32"
+            /></a>
+            <a href="https://wa.me/918902709631" target="_blank"
+              ><img src="../images/whatsapp.png" width="32"
+            /></a>
+            <a href="mailto:growtechofficial004@gmail.com"
+              ><img src="../images/gmail.png" width="32"
+            /></a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="fheader"></div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<section class="consultancy-section">
+  <div class="consultancy-container">
+    <div class="top-image-container">
+      <img
+        src="../images/consultancy.jpg"
+        alt="Consultancy Banner"
+        class="main-header-image"
+      />
+    </div>
+
+    <div class="form-card">
+      <h2>Consultation Request</h2>
+      <form id="consultation-form">
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="tel" id="phone" placeholder="Phone Number" required />
+
+        <select id="service-type" required>
+          <option value="" disabled selected>Select a Consultancy Type</option>
+          <option value="Digitally Help Related">Digitally Help Related</option>
+          <option value="Computer Servicing">Computer Servicing</option>
+          <option value="Computer Accessories">Computer Accessories</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <button type="submit">Request Now</button>
+      </form>
+
+      <p id="success-message">✅ Your request has been submitted!</p>
+    </div>
+  </div>
+</section>
+
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDI8FxDlILMR93AD69_E48qwMKJuSUqFXg",
+        authDomain: "digital-solutions-ae7ad.firebaseapp.com",
+        databaseURL:
+          "https://digital-solutions-ae7ad-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "digital-solutions-ae7ad",
+        storageBucket: "digital-solutions-ae7ad.appspot.com",
+        messagingSenderId: "761041929019",
+        appId: "1:761041929019:web:d228c928c6bd40ea4fed1e",
+        measurementId: "G-CS3VEXXEL9",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      document
+        .getElementById("consultation-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const phone = document.getElementById("phone").value;
+          const serviceType = document.getElementById("service-type").value;
+
+          const formData = {
+            name,
+            email,
+            phone,
+            serviceType,
+            timestamp: new Date().toISOString(),
+          };
+
+          database
+            .ref("consultationRequests")
+            .push(formData)
+            .then(() => {
+              document.getElementById("success-message").style.display =
+                "block";
+              this.reset();
+            })
+            .catch((error) => {
+              alert("Error: " + error.message);
+            });
+        });
+    </script>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const navbar = document.getElementById("navbar");
+      const links = document.querySelectorAll(".navbar-menu a");
+
+      // ✅ Hamburger toggle
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navbar.classList.toggle("active");
+      });
+
+      // ✅ লিঙ্কে ক্লিক করলে sidebar বন্ধ হবে + active effect আসবে
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          // Sidebar বন্ধ
+          menuToggle.classList.remove("active");
+          navbar.classList.remove("active");
+
+          // Active effect (গর্ত) সেট করা
+          links.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+
+      // ✅ Current page detect করে active বসানো (reload এ কাজ করবে)
+      const currentPage = window.location.pathname.split("/").pop();
+      links.forEach((link) => {
+        if (link.getAttribute("href").includes(currentPage)) {
+          link.classList.add("active");
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const preloader = document.getElementById("preloader");
+
+        // Show preloader only first time
+        if (localStorage.getItem("preloaderShown")) {
+          preloader.style.display = "none";
+          return;
+        }
+
+        // First-time preloader timeout (spinner only)
+        setTimeout(() => {
+          preloader.style.opacity = "0";
+          setTimeout(() => {
+            preloader.style.display = "none";
+            localStorage.setItem("preloaderShown", "true");
+          }, 500);
+        }, 2000); // 2 seconds spinner
+      });
+    </script>
+  </body>
+</html>

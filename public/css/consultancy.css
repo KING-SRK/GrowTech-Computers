@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #e5e7eb; /* নিউমরফিক ব্যাকগ্রাউন্ড */
+  padding: 10px;
+  color: #333;
+}
+
+/* Container Flex Layout */
+.consultancy-container {
+  display: flex;
+  align-items: center; /* vertical alignment */
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px 40px;
+}
+
+/* টপ ইমেজ */
+.top-image-container {
+  flex: 1; /* 50% space */
+  text-align: left; /* বাম দিকে লাইন */
+}
+
+.main-header-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: -6px -6px 12px #ffffff, 6px 6px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 80px;
+}
+
+/* ইনপুট, সিলেক্ট */
+form input,
+form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #e5e7eb;
+  box-shadow: inset -4px -4px 8px #ffffff, inset 4px 4px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+/* বাটন */
+form button {
+  width: 100%;
+  padding: 12px;
+  background: #e5e7eb;
+  color: #111827;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: -4px -4px 8px #ffffff, 4px 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  box-shadow: inset -4px -4px 8px #ffffff, inset 4px 4px 8px rgba(0,0,0,0.2);
+  transform: scale(0.98);
+}
+
+/* ফর্ম কার্ড */
+.form-card {
+  flex: 1; /* 50% space */
+  background: #e5e7eb;
+  padding: 40px 25px;
+  margin-top: 80px;
+  border-radius: 16px;
+  box-shadow: -6px -6px 12px #ffffff, 6px 6px 12px rgba(0, 0, 0, 0.15);
+
+  display: flex;            /* flex ব্যবহার করে content vertically align করবো */
+  flex-direction: column;   /* উপাদানগুলো column এ থাকবে */
+  justify-content: center;  /* vertical center */
+  min-height: 500px;        /* ন্যূনতম উচ্চতা */
+  box-sizing: border-box;
+}
+
+/* ফর্মের ভিতরের spacing ঠিক রাখা */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* input, select, button এর মধ্যে gap */
+}
+
+
+
+#success-message {
+  color: green;
+  display: none; /* এটা ঠিক আছে, ডিফল্টে লুকানো */
+  text-align: center;
+  margin-top: 10px;
+}
+
+
+/* রেসপনসিভ */
+
+/* Tablet */
+@media screen and (max-width: 1023px) {
+  .consultancy-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .top-image-container,
+  .form-card {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .main-header-image {
+    margin-bottom: 20px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  form input,
+  form select {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  form button {
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+
+
+
+/* Preloader full screen */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e5e7eb; /* Neumorphic light bg */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+/* Spinner with smooth gradient */
+.spinner {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid #d1d5db; /* Base color */
+  border-top: 10px solid #0077ff; /* Accent color */
+  animation: spin 1s linear infinite;
+  box-shadow: 6px 6px 15px #cfd1d4, -6px -6px 15px #ffffff;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

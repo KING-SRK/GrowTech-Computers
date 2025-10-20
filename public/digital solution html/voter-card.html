@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Voter Card</title>
+    <link rel="stylesheet" href="../digital solution css/voter-card.css" />
+    <link rel="stylesheet" href="../css/popup.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  </head>
+  <body>
+    <button class="fixed-back-btn" onclick="history.back()">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+
+    <h1 class="title">New Voter Card</h1>
+
+    <div class="box">
+      <div class="left">
+        <div class="submit-note highlight-important">
+          📝 <strong>Note:</strong> Fill the exact ditails below carefully.
+        </div>
+
+        <div class="image-slider">
+          <div class="slides">
+            <img src="../images/voter-img1.png" alt="Slide 1" />
+            <img src="../images/voter-img2.png" alt="Slide 2" />
+            <img src="../images/voter-img3.png" alt="Slide 3" />
+            <img src="../images/voter-img4.png" alt="Slide 4" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <form id="voterCardForm">
+          <div class="voter-card">
+            <h3>State: West Bengal</h3>
+
+            <label for="district">Select District:</label>
+            <select id="district" name="district">
+              <option value="">-- Select District --</option>
+              <option value="alipurduar">Alipurduar</option>
+              <option value="bankura">Bankura</option>
+              <option value="birbhum">Birbhum</option>
+              <option value="coochbehar">Cooch Behar</option>
+              <option value="dakshin_dinajpur">Dakshin Dinajpur</option>
+              <option value="darjeeling">Darjeeling</option>
+              <option value="hooghly">Hooghly</option>
+              <option value="howrah">Howrah</option>
+              <option value="jalpaiguri">Jalpaiguri</option>
+              <option value="jhargram">Jhargram</option>
+              <option value="kalimpong">Kalimpong</option>
+              <option value="kolkata">Kolkata</option>
+              <option value="malda">Malda</option>
+              <option value="murshidabad">Murshidabad</option>
+              <option value="nadia">Nadia</option>
+              <option value="north_24_parganas">North 24 Parganas</option>
+              <option value="paschim_bardhaman">Paschim Bardhaman</option>
+              <option value="paschim_medinipur">Paschim Medinipur</option>
+              <option value="purba_bardhaman">Purba Bardhaman</option>
+              <option value="purba_medinipur">Purba Medinipur</option>
+              <option value="purulia">Purulia</option>
+              <option value="south_24_parganas">South 24 Parganas</option>
+              <option value="uttar_dinajpur">Uttar Dinajpur</option>
+            </select>
+
+            <div class="form-section">
+              <h2>Assembly Constituency Details</h2>
+              <div id="assembly-details" class="details-section">
+                <label for="assembly-name">Name</label>
+                <select id="assembly-name">
+                  <option value="">Select Assembly</option>
+                </select>
+
+                <label for="assembly-no">No.</label>
+                <span
+                  id="assembly-no"
+                  style="
+                    display: inline-block;
+                    font-weight: bold;
+                    padding-left: 5px;
+                  "
+                  >—</span
+                >
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="details-section">
+                <label for="tehsil">Tehsil / Taluka / Mandal</label>
+                <p style="color: #555; font-size: 13px; margin: -8px 0 8px">
+                  Any one from the options above
+                </p>
+                <input
+                  type="text"
+                  id="tehsil"
+                  name="tehsil"
+                  placeholder="Enter"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="details-section">
+                <label for="name">Enter Your Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter Your Name"
+                  required
+                />
+                <label for="phone">Enter Your Mobile Number:</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter Mobile Number"
+                  required
+                />
+
+                <label for="email">Enter Your Email ID:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter Email ID"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="container" style="margin-top: 20px">
+              <p
+                style="
+                  font-size: 16px;
+                  margin-bottom: 20px;
+                  color: #0a3c59;
+                  text-align: center;
+                "
+              >
+                Send the following documents via WhatsApp:
+              </p>
+
+              <ul style="color: #0a3c59; margin-left: 25px; font-size: 15px">
+                <li>📄 Aadhaar Card (Front & Back)</li>
+                <li>📄 Passport Size Photo</li>
+              </ul>
+              <div style="text-align: center; margin: 10px 0">
+                <a
+                  href="https://wa.me/918902709631?text=Hi, I submitted my New Voter Card request. Sending my Aadhar card photo and passport size photo."
+                  target="_blank"
+                >
+                  <button
+                    type="button"
+                    style="
+                      padding: 10px 25px;
+                      background-color: #25d366;
+                      color: white;
+                      border: none;
+                      border-radius: 8px;
+                      font-size: 16px;
+                      cursor: pointer;
+                    "
+                  >
+                    📤 Send Photo via WhatsApp
+                  </button>
+                </a>
+              </div>
+
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  font-size: 15px;
+                  margin-top: 10px;
+                "
+              >
+                <input type="checkbox" id="photo-confirm" required />
+                I confirm that I have sent my Aadhar card photo and passport
+                size photo via WhatsApp.
+              </label>
+            </div>
+
+            <div class="submit-container">
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      id="popup-container"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      "
+    >
+      <div
+        style="
+          max-width: 700px;
+          background: #fff9e6;
+          color: #6b4c00;
+          font-size: 16px;
+          font-weight: 500;
+          border: 2px solid #ffdd57;
+          border-left: 6px solid #ffc107;
+          padding: 20px 25px;
+          border-radius: 10px;
+          line-height: 1.7;
+          text-align: center;
+          box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
+          font-family: 'Segoe UI', sans-serif;
+        "
+      >
+        <h2
+          id="popup-title"
+          style="margin-bottom: 12px; font-size: 22px; color: #5c3a00"
+        >
+          🎉 Success
+        </h2>
+        <p id="popup-message">Your premium message goes here.</p>
+        <button
+          id="popup-ok-btn"
+          style="
+            margin-top: 20px;
+            padding: 10px 22px;
+            background: #ffc107;
+            color: #4a3200;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+          "
+        >
+          OK
+        </button>
+      </div>
+    </div>
+
+    <script src="../js/voter-card.js"></script>
+    <script src="../js/popup.js"></script>
+
+    <script>
+      // Firebase config
+      const firebaseConfig = {
+        apiKey: "AIzaSyDI8FxDlILMR93AD69_E48qwMKJuSUqFXg",
+        authDomain: "digital-solutions-ae7ad.firebaseapp.com",
+        databaseURL:
+          "https://digital-solutions-ae7ad-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "digital-solutions-ae7ad",
+        storageBucket: "digital-solutions-ae7ad.appspot.com",
+        messagingSenderId: "761041929019",
+        appId: "1:761041929019:web:d228c928c6bd40ea4fed1e",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      // ✅ Popup show function
+      function showPopup(title, message) {
+        const popupContainer = document.getElementById("popup-container");
+        document.getElementById("popup-title").innerText = title;
+        document.getElementById("popup-message").innerText = message;
+        popupContainer.style.display = "flex";
+      }
+
+      // ✅ OK button click event
+      document.getElementById("popup-ok-btn").addEventListener("click", () => {
+        document.getElementById("popup-container").style.display = "none";
+      });
+
+      // ✅ Form submit handler
+      document
+        .getElementById("voterCardForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const photoConfirmed =
+            document.getElementById("photo-confirm").checked;
+          if (!photoConfirmed) {
+            showPopup(
+              "⚠️ Photo Required",
+              "❗ Please confirm that you have sent your documents via WhatsApp."
+            );
+            return;
+          }
+
+          // ** Changes to save data by date **
+          const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+
+          const data = {
+            state: "West Bengal",
+            district: document.getElementById("district").value,
+            assemblyName: document.getElementById("assembly-name").value,
+            assemblyNo: document.getElementById("assembly-no").innerText,
+            tehsil: document.getElementById("tehsil").value,
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            photoConfirmed: photoConfirmed,
+            timestamp: new Date().toISOString(),
+          };
+
+          // Push data to Firebase under a date-specific reference
+          database
+            .ref("voterCardApplications/" + today)
+            .push(data)
+            .then(() => {
+              // ✅ Show popup instead of alert
+              showPopup(
+                "✅ Submission Successful",
+                "We have received your request. Our team will call you shortly to collect further details. Please keep your phone turned on and nearby."
+              );
+              e.target.reset();
+              document.getElementById("photo-confirm").checked = false;
+            })
+            .catch((error) => {
+              // ❌ Show error popup
+              showPopup("❌ Error", "Something went wrong: " + error.message);
+            });
+        });
+    </script>
+
+    <script>
+      const slider = document.querySelector(".image-slider");
+      const slides = document.querySelector(".slides");
+      const images = slides.querySelectorAll("img");
+
+      let currentIndex = 0;
+      const totalSlides = images.length;
+
+      // ✅ প্রথম আর শেষ ইমেজ কপি করে clone যোগ করা হচ্ছে (infinite loop effect এর জন্য)
+      const firstClone = images[0].cloneNode(true);
+      const lastClone = images[totalSlides - 1].cloneNode(true);
+
+      slides.appendChild(firstClone); // শেষে প্রথম clone
+      slides.insertBefore(lastClone, images[0]); // শুরুতে শেষ clone
+
+      // সব ইমেজ আবার select করো (clone সহ)
+      const allImages = slides.querySelectorAll("img");
+
+      let index = 1; // clone এর কারণে আসল শুরু হবে index=1
+      const slideWidth = images[0].clientWidth;
+
+      slides.style.transform = `translateX(-${index * slideWidth}px)`;
+
+      function moveToNextSlide() {
+        index++;
+        slides.style.transition = "transform 0.5s ease-in-out";
+        slides.style.transform = `translateX(-${index * slideWidth}px)`;
+
+        // clone এ গেলে সাথে সাথে আসল স্লাইডে jump করবে
+        setTimeout(() => {
+          if (index === allImages.length - 1) {
+            slides.style.transition = "none";
+            index = 1; // আসল প্রথম ইমেজে ফিরবে
+            slides.style.transform = `translateX(-${index * slideWidth}px)`;
+          }
+        }, 500);
+      }
+
+      setInterval(moveToNextSlide, 3000);
+
+      // window resize হলে height adjust করবো
+      window.addEventListener("resize", () => {
+        slider.style.height = allImages[index].clientHeight + "px";
+      });
+
+      // প্রথমে height set করো
+      slider.style.height = allImages[index].clientHeight + "px";
+    </script>
+  </body>
+</html>

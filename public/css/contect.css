@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #e5e7eb; /* Neumorphic background */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Page Header */
+.page-header {
+  text-align: center; /* Mobile & Tablet default */
+  padding: 40px 20px 20px;
+  background: #e5e7eb;
+  box-shadow: inset 8px 8px 16px #c8c9cc,
+              inset -8px -8px 16px #ffffff;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 800px; /* Mobile/Tablet width */
+  transition: all 0.3s ease;
+}
+
+/* H1 এবং P স্টাইল */
+.page-header h1 {
+  font-size: 32px;
+  color: #2b72ff;
+}
+
+.page-header p {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .page-header {
+    text-align: left; /* Desktop-এ বাম দিকের alignment */
+    max-width: 1000px; /* Desktop-এ width বড় */
+    padding: 50px 40px 30px;
+    margin-left: 50px;  /* হেডারকে বামদিক থেকে সরানো */
+    margin-right: auto; /* ডান দিকে auto margin */
+  }
+
+  .page-header h1 {
+    font-size: 36px; /* হেডিং একটু বড় */
+  }
+
+  .page-header p {
+    font-size: 18px;
+  }
+}
+
+
+/* Contact Form */
+.contact-form-section {
+  background: #e5e7eb;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px #c8c9cc,
+              -8px -8px 16px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column; /* Mobile & Tablet vertically stacked */
+  gap: 30px;
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.contact-video video,
+.contact-video img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px #c8c9cc,
+              -8px -8px 16px #ffffff;
+}
+
+.contact-form-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2b72ff;
+}
+
+
+
+/* Inputs */
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #e5e7eb;
+  box-shadow: inset 4px 4px 8px #c8c9cc,
+              inset -4px -4px 8px #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 5px #c8c9cc,
+              inset -2px -2px 5px #ffffff;
+}
+
+/* Button */
+form button {
+  width: 100%;
+  padding: 12px;
+  background: #e5e7eb;
+  color: #2b72ff;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 6px 6px 12px #c8c9cc,
+              -6px -6px 12px #ffffff;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  box-shadow: inset 4px 4px 8px #c8c9cc,
+              inset -4px -4px 8px #ffffff;
+  color: #1c5fd1;
+}
+
+.success-msg {
+  text-align: center;
+  color: green;
+  display: none;
+  margin-top: 10px;
+}
+
+/* Desktop (≥1024px) - horizontal layout */
+@media (min-width: 1024px) {
+  .contact-section {
+    flex-direction: row; /* side by side */
+    align-items: flex-start;
+    gap: 50px;
+  }
+
+  .contact-video,
+  .contact-form-section {
+    flex: 1; /* দুই দিকের space সমান */
+    margin-top: 50px;
+  }
+  
+  .contact-form-section {
+    max-width: 600px; /* form-এর width নির্দিষ্ট */
+  }
+}
+
+
+/* Support Cards */
+.support-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px; /* Desktop gap */
+  margin: 30px auto 50px;
+  padding: 0 15px;
+}
+
+/* Individual card */
+.card {
+  background: #e5e7eb;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 8px 8px 16px #c8c9cc,
+              -8px -8px 16px #ffffff;
+  text-align: center;
+  transition: all 0.3s;
+  flex: 1 1 250px;
+  max-width: 300px; /* Desktop card width */
+}
+
+.card:hover {
+  box-shadow: inset 4px 4px 8px #c8c9cc,
+              inset -4px -4px 8px #ffffff;
+}
+
+.card h3 {
+  color: #0a3c59;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.card p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* 📱 Mobile (≤600px) */
+@media (max-width: 600px) {
+  .support-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .card {
+    max-width: 100%; /* phone full width */
+    padding: 20px;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+}
+
+/* 📲 Tablet (601px–1023px) */
+@media (min-width: 601px) and (max-width: 1023px) {
+  .support-cards {
+    gap: 20px;
+  }
+
+  .card {
+    max-width: 45%; /* tablet 2 card side by side */
+    padding: 25px;
+  }
+
+  .card h3 {
+    font-size: 1.25rem;
+  }
+
+  .card p {
+    font-size: 1.05rem;
+  }
+}
+
+
+/* Preloader full screen */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e5e7eb; /* Neumorphic light bg */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+/* Spinner with smooth gradient */
+.spinner {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid #d1d5db; /* Base color */
+  border-top: 10px solid #0077ff; /* Accent color */
+  animation: spin 1s linear infinite;
+  box-shadow: 6px 6px 15px #cfd1d4, -6px -6px 15px #ffffff;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

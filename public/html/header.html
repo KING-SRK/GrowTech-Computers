@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowTech Header</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/header.css">
+</head>
+<body>
+<header class="header bg-gray-200">
+  <div class="header-container max-w-6xl mx-auto px-6 py-4 flex justify-between items-center relative z-20">
+    <div class="logo flex items-center p-2 rounded-2xl shadow-neumorphic-light">
+      <img src="../images/logo.png" alt="GrowTech Logo" class="w-10 h-10 rounded-full mr-2" />
+      <span class="text-xl font-bold text-gray-800">GrowTech</span>
+    </div>
+
+    <!-- Hamburger Button -->
+<button class="menu-toggle md:hidden" id="menu-toggle" title="Open navigation menu">
+  <span class="hamburger"></span>
+</button>
+  </div>
+
+  <!-- Sidebar Navbar -->
+  <nav class="navbar" id="navbar">
+    <ul class="navbar-menu flex flex-col gap-6">
+      <li><a href="#">Home</a></li>
+      <li><a href="html/digital-solutions.html">Digital Solutions</a></li>
+      <li><a href="html/computer-repaier.html">Computer Hardware Repairing</a></li>
+      <li><a href="html/Consultancy.html">Consultancy</a></li>
+      <li><a href="html/contect.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="fheader"></div>
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- ✅ JavaScript to enable toggle and active link highlighting -->
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navbar = document.getElementById('navbar');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navbar.classList.toggle('active');
+  });
+
+  // মেনুতে কোনো লিঙ্কে ক্লিক করলে sidebar বন্ধ হবে
+  document.querySelectorAll('.navbar-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navbar.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html>

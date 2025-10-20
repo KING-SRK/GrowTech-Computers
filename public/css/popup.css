@@ -1,0 +1,61 @@
+/* ✅ popup.css - Premium Gold Theme */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.popup-box {
+  max-width: 700px;
+  background: #fff9e6;
+  color: #6b4c00;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #ffdd57;
+  border-left: 6px solid #ffc107;
+  padding: 20px 25px;
+  border-radius: 10px;
+  line-height: 1.7;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.25);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.popup-box h2 {
+  margin-bottom: 12px;
+  font-size: 22px;
+  color: #5c3a00;
+}
+
+.popup-box p {
+  font-size: 16px;
+  color: #4a3200;
+}
+
+.popup-box button {
+  margin-top: 20px;
+  padding: 10px 22px;
+  background: #ffc107;
+  color: #4a3200;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.popup-box button:hover {
+  background: #e6ac00;
+  transform: translateY(-1px);
+}

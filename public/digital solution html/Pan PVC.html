@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAN + PVC Application</title>
+    <link rel="stylesheet" href="../digital solution css/Pan PVC.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  </head>
+  <body>
+    <button class="fixed-back-btn" onclick="history.back()">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+
+    <div class="page-header">
+      <h1>PAN PVC Order</h1>
+    </div>
+
+    <div class="container">
+      <form id="pan-pvc-form">
+        <p style="text-align: center; margin-bottom: 15px">
+          🖊️ <b>Step 1:</b> Please enter your contact & basic details below:
+        </p>
+
+        <label for="mobile2">📱 Mobile Number:</label>
+        <input
+          type="tel"
+          id="mobile2"
+          name="mobile2"
+          required
+          placeholder="Enter mobile number"
+        />
+
+        <label for="email2">📧 Email Address:</label>
+        <input
+          type="email"
+          id="email2"
+          name="email2"
+          required
+          placeholder="Enter email address"
+        />
+
+        <label for="occupation">💼 Occupation:</label>
+        <input
+          type="text"
+          id="occupation"
+          name="occupation"
+          required
+          placeholder="Enter your occupation"
+        />
+
+        <p style="text-align: center; margin: 20px 0">
+          📸 <b>Step 2:</b> Please send the following 3 documents via WhatsApp:
+        </p>
+        <ul>
+          <li>📄 Aadhar Card (Front & Back)</li>
+          <li>✍️ Your Signature on white paper</li>
+          <li>🖼️ Passport size photo</li>
+        </ul>
+
+        <div style="text-align: center">
+          <a
+            href="https://wa.me/918902709631?text=Hi, I submitted my PAN+PVC application. Sending my Aadhar, Signature & Passport Photo."
+            target="_blank"
+          >
+            <button type="button" class="whatsapp-btn">
+              📤 Send Documents via WhatsApp
+            </button>
+          </a>
+        </div>
+
+        <label
+          style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            margin-top: 15px;
+          "
+        >
+          <input type="checkbox" id="photo-confirm2" required />
+          I confirm that I have sent all required documents via WhatsApp.
+        </label>
+
+        <div id="submit-info-2">
+          ⏳ Please wait a moment... We will send you a confirmation message via
+          email. Stay active and check your inbox. 📧
+        </div>
+
+        <div style="text-align: center; margin-top: 25px">
+          <button type="submit" class="submit-btn">Submit Application</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDI8FxDlILMR93AD69_E48qwMKJuSUqFXg",
+        authDomain: "digital-solutions-ae7ad.firebaseapp.com",
+        databaseURL:
+          "https://digital-solutions-ae7ad-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "digital-solutions-ae7ad",
+        storageBucket: "digital-solutions-ae7ad.appspot.com",
+        messagingSenderId: "761041929019",
+        appId: "1:761041929019:web:d228c928c6bd40ea4fed1e",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+
+      document
+        .getElementById("pan-pvc-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          if (!document.getElementById("photo-confirm2").checked) {
+            alert("❗ Confirm that you sent all documents via WhatsApp.");
+            return;
+          }
+
+          const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+
+          const data = {
+            mobile: document.getElementById("mobile2").value,
+            email: document.getElementById("email2").value,
+            occupation: document.getElementById("occupation").value,
+            timestamp: new Date().toISOString(),
+            photoSent: true,
+          };
+
+          db.ref("panCardPVCApplications/" + today)
+            .push(data)
+            .then(() => {
+              document.getElementById("submit-info-2").style.display = "block";
+              this.reset();
+              document.getElementById("photo-confirm2").checked = false;
+              window.scrollTo({
+                top: document.getElementById("submit-info-2").offsetTop - 50,
+                behavior: "smooth",
+              });
+            })
+            .catch((error) => {
+              alert("❌ Error: " + error.message);
+            });
+        });
+    </script>
+  </body>
+</html>

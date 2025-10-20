@@ -1,0 +1,80 @@
+.digital-services {
+  background: #e0e5ec;
+  padding: 0px 20px;
+  border-radius: 30px;
+}
+
+/* শিরোনাম */
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #009ead;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* 🔹 প্রতিটি সারি horizontally scroll হবে */
+.services-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  scrollbar-width: none;
+}
+
+.services-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* 🔹 ছবিগুলো সরাসরি থাকবে, কোনো shadow বা কার্ড ছাড়া */
+.service-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* 🔸 Rectangle images */
+.rectangular .service-card img {
+  width: 300px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+/* 🔸 Square images */
+.square .service-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+/* 🔸 Tall images */
+.tall .service-card img {
+  width: 180px;
+  height: 320px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+/* 📱 মোবাইলের জন্য responsive */
+@media (max-width: 768px) {
+  .rectangular .service-card img {
+    width: 220px;
+    height: 130px;
+  }
+  .square .service-card img {
+    width: 150px;
+    height: 150px;
+  }
+  .tall .service-card img {
+    width: 140px;
+    height: 250px;
+  }
+}

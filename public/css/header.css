@@ -1,0 +1,296 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif; /* Adjusted to match the HTML font */
+  background-color: #e0e5ec; /* Unified with neumorphic sections */
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Fixed Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #e5e7eb; /* Tailwind bg-gray-200 এর মতো */
+  z-index: 1000;
+}
+
+/* Container */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+
+.fheader {
+  padding: 15px 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #e5e7eb;
+}
+
+
+/* Sidebar Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: -350px; /* প্রথমে লুকানো থাকবে */
+  width: 80%;
+  height: 100%;
+  background: #f5f5f5;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  padding: 60px 20px;
+  transition: left 0.3s ease;
+  z-index: 999;
+
+  overflow-y: auto;   /* ✅ Scroll সক্রিয় */
+  scrollbar-width: thin; /* Firefox এর জন্য */
+  scrollbar-color: #b8b9be #e0e5ec;
+}
+
+/* Custom scrollbar (Chrome, Edge) */
+.navbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.navbar::-webkit-scrollbar-track {
+  background: #e0e5ec;
+  border-radius: 10px;
+}
+
+.navbar::-webkit-scrollbar-thumb {
+  background: #b8b9be;
+  border-radius: 10px;
+}
+
+
+.navbar.active {
+  left: 0; /* Slide in */
+}
+
+.navbar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Normal (Inactive) Links → উচু */
+.navbar-menu li a {
+  display: block;
+  padding: 12px 15px;
+  margin: 10px 0;
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 12px;
+  background: #e0e5ec;
+  box-shadow: 6px 6px 10px #b8b9be, -6px -6px 10px #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Hover এ হালকা রঙ */
+.navbar-menu li a:hover {
+  color: #007bff;
+  box-shadow: 4px 4px 6px #b8b9be, -4px -4px 6px #ffffff;
+}
+
+.navbar-menu li a.active {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  background: #e0e5ec;
+  box-shadow: inset 4px 4px 6px #b8b9be, inset -4px -4px 6px #ffffff;
+  font-size: 14px;
+}
+
+/* Hamburger Button */
+.menu-toggle {
+  width: 30px;
+  height: 24px;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: none;
+  z-index: 1001;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+/* Base line (middle) is now the longest */
+
+/* Top line (::before) is now the shortest */
+.hamburger::before {
+  top: -8px;
+  width: 40px; /* Shortest line */
+  right: 0; /* Align to the left */
+}
+
+.hamburger {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px; /* Longest line */
+}
+
+/* Bottom line (::after) is now of medium length */
+.hamburger::after {
+  top: 8px;
+  width: 20px; /* Medium line */
+  right: 0; /* Align to the left */
+}
+
+/* Animation to X */
+.menu-toggle.active .hamburger {
+  background: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+  width: 100%; /* Ensure full width for the 'X' */
+}
+
+.menu-toggle.active .hamburger::after {
+  top: 0;
+  transform: rotate(-45deg);
+  width: 100%; /* Ensure full width for the 'X' */
+}
+
+/* Sidebar Navbar Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  border-bottom: 2px solid #ddd;
+}
+
+.navbar-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar-logo span {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Navbar bottom section */
+.navbar-bottom {
+  margin-top: auto;
+  padding: 20px;
+  border-radius: 16px;
+  background: #e0e5ec; /* neumorphic base color */
+  box-shadow: inset 4px 4px 8px #b6b9bd,
+              inset -4px -4px 8px #ffffff; /* inner shadow look */
+}
+
+/* Social icons */
+.navbar-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.navbar-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #e0e5ec;
+  box-shadow: 6px 6px 12px #b6b9bd,
+              -6px -6px 12px #ffffff;
+  transition: all 0.3s ease;
+}
+
+.navbar-social a:hover {
+  box-shadow: inset 4px 4px 8px #b6b9bd,
+              inset -4px -4px 8px #ffffff;
+  transform: translateY(2px);
+}
+
+/* Social icons image */
+.navbar-social img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Contact info */
+.navbar-contact {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.8;
+  padding: 12px;
+  border-radius: 12px;
+  background: #e0e5ec;
+  box-shadow: 4px 4px 8px #b6b9bd,
+              -4px -4px 8px #ffffff;
+}
+
+.navbar-contact p {
+  margin: 5px 0;
+  word-break: break-word; /* ✅ */
+}
+
+.navbar-contact i {
+  margin-right: 6px;
+  color: #0077ff; /* সুন্দর আইকন কালার */
+}
+
+/* Desktop Navbar Hidden/Show */
+@media (min-width: 768px) {
+  .navbar {
+    display: none !important; /* Desktop এ sidebar বন্ধ */
+  }
+}
+
+/* Desktop Menu Styling */
+@media (min-width: 768px) {
+  .header-container ul li a {
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  }
+
+  .header-container ul li a:hover {
+    background: #e0e5ec;
+    color: #0077ff;
+    box-shadow: 4px 4px 8px #b8b9bd, -4px -4px 8px #ffffff;
+  }
+}

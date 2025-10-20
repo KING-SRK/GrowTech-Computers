@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #e0e0e0; /* নিউমরফিক ব্যাকগ্রাউন্ড */
+  padding: 10px;
+  color: #333;
+}
+
+/* টপ ইমেজ কন্টেইনার */
+.top-image-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.main-header-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  box-shadow: -8px -8px 16px #ffffff,
+              8px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ছবির উপর ভেসে থাকা সার্চ বক্স */
+.search-box {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 20px;
+  width: 80%;
+  max-width: 500px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  background: #e5e7eb;
+  color: #333;
+  z-index: 2;
+
+  /* নিউমরফিক স্টাইল */
+  box-shadow: inset -6px -6px 12px #ffffff,
+              inset 6px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 📱 Tablet (≥768px) */
+@media (min-width: 768px) {
+  .search-box {
+    top: 20%;              /* ছবির একটু নিচে নামল */
+    width: 70%;            /* ট্যাবলেটে একটু ছোট হবে */
+    max-width: 600px;      /* সীমা বড় */
+    font-size: 1.1rem;     /* লেখাও একটু বড় */
+    padding: 14px 22px;    /* বক্সটা মোটা হবে */
+  }
+}
+
+/* 💻 Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .search-box {
+    top: 90%;
+    width: 60%;            /* ডেক্সটপে আরও ছোট, সুন্দর লাগবে */
+    max-width: 700px;      /* সীমা আরও বড় */
+    font-size: 1.2rem;     /* টেক্সট বড় */
+    padding: 16px 24px;    /* বক্সটা আরামদায়ক */
+  }
+
+  .main-header-image {
+    border-radius: 25px;   /* ডেক্সটপে একটু বেশি গোল হবে */
+    height: 80%;
+    width: 90%;
+  }
+}
+
+/* কার্ড কন্টেইনার */
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* container মাঝের দিকে centered */
+  gap: 30px; /* কার্ডের মধ্যে ফাঁকা */
+  margin: 30px auto;
+  max-width: 1200px; /* container এর চওড়া সীমা */
+}
+
+/* প্রতিটি প্রোডাক্ট কার্ড */
+.product-card {
+  background: #e5e7eb;
+  border-radius: 20px;
+  padding: 25px;
+  width: calc(50% - 15px); /* ২টি কার্ড পাশে থাকবে */
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: -6px -6px 12px #ffffff,
+              6px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: -8px -8px 16px #ffffff,
+              8px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* হেডিং এবং পারা স্টাইল */
+.product-title {
+  font-size: 1.5rem; /* বড় এবং স্পষ্ট */
+  font-weight: 700;
+  margin: 15px 0 10px;
+  color: #333;
+}
+
+.product-description {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0 20px;
+  line-height: 1.6;
+}
+
+/* বাটন (Get a Quote) */
+.get-a-quote {
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: #e5e7eb;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: -4px -4px 8px #ffffff,
+              4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.get-a-quote:hover {
+  box-shadow: inset -4px -4px 8px #ffffff,
+              inset 4px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(0.98);
+}
+
+/* রেসপনসিভ মোডে (মোবাইল) */
+@media (max-width: 600px) {
+  .product-card {
+    width: 100%;
+  }
+
+  .product-title {
+    font-size: 1.3rem;
+  }
+
+  .product-description {
+    font-size: 0.95rem;
+  }
+
+  .main-header-image {
+    max-width: 100%;
+  }
+
+  .search-box {
+    font-size: 14px;
+    padding: 10px 16px;
+    width: 90%;
+  }
+}
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .product-card {
+    width: calc(50% - 15px); /* ২টি কার্ড পাশাপাশিই */
+  }
+
+  .product-title {
+    font-size: 1.4rem;
+  }
+
+  .product-description {
+    font-size: 0.98rem;
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .product-card {
+    width: calc(50% - 20px); /* ২টি কার্ড পাশাপাশিই */
+  }
+
+  .product-title {
+    font-size: 1.6rem;
+  }
+
+  .product-description {
+    font-size: 1.05rem;
+  }
+}
+
+
+/* Preloader full screen */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e5e7eb; /* Neumorphic light bg */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+/* Spinner with smooth gradient */
+.spinner {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid #d1d5db; /* Base color */
+  border-top: 10px solid #0077ff; /* Accent color */
+  animation: spin 1s linear infinite;
+  box-shadow: 6px 6px 15px #cfd1d4, -6px -6px 15px #ffffff;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

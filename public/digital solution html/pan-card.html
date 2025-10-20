@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAN Card Application</title>
+    <link rel="stylesheet" href="../digital solution css/pan-card.css" />
+    <link rel="stylesheet" href="../css/popup.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  </head>
+  <body>
+    <button class="fixed-back-btn" onclick="history.back()">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+
+    <div class="page-header">
+      <h1>New PAN Card</h1>
+    </div>
+
+    <div class="box">
+      <div class="left">
+        <div class="submit-note highlight-important">
+          📝 <strong>Note:</strong> Fill the exact ditails below carefully.
+        </div>
+        <div class="image-slider">
+          <div class="slides">
+            <img src="../images/pan-img1.png" alt="Slide 1" />
+            <img src="../images/pan-img2.png" alt="Slide 2" />
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-container">
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span>Apply for PAN Card</span>
+          </button>
+          <div class="accordion-content">
+            <form id="pan-form" style="padding: 10px 0">
+              <div class="container" style="margin-top: 15px">
+                <div class="submit-note highlight-important">
+                  📝 <strong>Note:</strong> Fill the exact ditails below
+                  carefully, Through this option this application you just get a
+                  digital copy of "PAN Card".
+                </div>
+                <p style="font-size: 16px; color: #0a3c59; text-align: center">
+                  <b>Step 1:</b> Please enter your contact details below:
+                </p>
+
+                <label for="name">Full Name:</label><br />
+                <input
+                  type="tel"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Enter Full Name"
+                  style="
+                    width: 100%;
+                    padding: 8px;
+                    margin: 6px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "
+                /><br />
+                <label for="mobile">Mobile Number:</label><br />
+                <input
+                  type="tel"
+                  id="mobile"
+                  name="mobile"
+                  required
+                  placeholder="Enter mobile number"
+                  style="
+                    width: 100%;
+                    padding: 8px;
+                    margin: 6px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "
+                /><br />
+
+                <label for="email">Email Address:</label><br />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="Enter email address"
+                  style="
+                    width: 100%;
+                    padding: 8px;
+                    margin: 6px 0 15px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "
+                />
+              </div>
+
+              <div class="container" style="margin-top: 10px">
+                <p
+                  style="
+                    font-size: 16px;
+                    margin-bottom: 20px;
+                    color: #0a3c59;
+                    text-align: center;
+                  "
+                >
+                  <b>Step 2:</b> Send the following documents via WhatsApp:
+                </p>
+
+                <ul style="color: #0a3c59; margin-left: 25px; font-size: 15px">
+                  <li>📄 Aadhaar Card (Front & Back)</li>
+                </ul>
+                <div style="text-align: center; margin: 10px 0">
+                  <a
+                    href="https://wa.me/918902709631?text=Hi, I submitted my PAN Card request. Sending my Aadhar card photo."
+                    target="_blank"
+                  >
+                    <button
+                      type="button"
+                      style="
+                        padding: 10px 25px;
+                        background-color: #25d366;
+                        color: white;
+                        border: none;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        cursor: pointer;
+                      "
+                    >
+                      📤 Send Photo via WhatsApp
+                    </button>
+                  </a>
+                </div>
+
+                <label
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 15px;
+                    margin-top: 10px;
+                  "
+                >
+                  <input type="checkbox" id="photo-confirm" required />
+                  I confirm that I have sent my Aadhar card photo via WhatsApp.
+                </label>
+              </div>
+
+              <div
+                id="submit-info"
+                style="
+                  display: none;
+                  text-align: center;
+                  margin-top: 15px;
+                  font-size: 15px;
+                  color: #0a3c59;
+                  background-color: #e9f6ff;
+                  padding: 10px 15px;
+                  border-left: 4px solid #0a3c59;
+                  border-radius: 6px;
+                "
+              >
+                ⏳ Please wait a moment... We will send you a confirmation
+                message via email. Stay active and check your inbox. 📧
+              </div>
+
+              <div style="text-align: center; margin: 20px 0">
+                <button
+                  type="submit"
+                  style="
+                    padding: 12px 30px;
+                    background-color: #0e5883;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    cursor: pointer;
+                  "
+                >
+                  Submit Application
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn">
+            <span>Apply for PAN Card with PVC</span>
+          </button>
+          <div class="accordion-content">
+            <form id="pan-pvc-form" style="padding: 10px 0">
+              <div class="container" style="margin-top: 15px">
+                <div class="submit-note highlight-important">
+                  "📝 <strong>Note:</strong> Fill the exact details below,
+                  Through this option, your complete PAN card will be generated
+                  with all details, including photo and signature. The final PAN
+                  card will be delivered to your home via India Post."
+                </div>
+                <p style="font-size: 16px; color: #0a3c59; text-align: center">
+                  <b>Step 1:</b> Please enter your contact & basic details
+                  below:
+                </p>
+
+                <label for="name2">Full Name:</label><br />
+                <input
+                  type="tel"
+                  id="name2"
+                  name="name2"
+                  required
+                  placeholder="Enter Full Name"
+                  style="
+                    width: 100%;
+                    padding: 8px;
+                    margin: 6px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "
+                /><br />
+
+                <label for="mobile2">Mobile Number:</label><br />
+                <input
+                  type="tel"
+                  id="mobile2"
+                  name="mobile2"
+                  required
+                  placeholder="Enter mobile number"
+                  style="
+                    width: 100%;
+                    padding: 8px;
+                    margin: 6px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "
+                /><br />
+
+                <label for="email2">Email Address:</label><br />
+                <input
+                  type="email"
+                  id="email2"
+                  name="email2"
+                  required
+                  placeholder="Enter email address"
+                  style="
+                    width: 100%;
+                    padding: 8px;
+                    margin: 6px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "
+                /><br />
+
+                <label for="occupation">Occupation:</label><br />
+                <input
+                  type="text"
+                  id="occupation"
+                  name="occupation"
+                  required
+                  placeholder="Enter your occupation"
+                  style="
+                    width: 100%;
+                    padding: 8px;
+                    margin: 6px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                  "
+                /><br />
+              </div>
+
+              <div class="container" style="margin-top: 10px">
+                <p style="font-size: 16px; color: #0a3c59; text-align: center">
+                  <b>Step 2:</b> Please send the following 3 documents via
+                  WhatsApp:
+                </p>
+                <ul style="color: #0a3c59; margin-left: 25px; font-size: 15px">
+                  <li>📄 Aadhar Card (Front & Back)</li>
+                  <li>✍️ Your Signature on white paper</li>
+                  <li>🖼️ Passport size photo</li>
+                </ul>
+
+                <div style="text-align: center; margin: 10px 0">
+                  <a
+                    href="https://wa.me/918902709631?text=Hi, I submitted my PAN+PVC application. Sending my Aadhar, Signature & Passport Photo."
+                    target="_blank"
+                  >
+                    <button
+                      type="button"
+                      style="
+                        padding: 10px 25px;
+                        background-color: #25d366;
+                        color: white;
+                        border: none;
+                        border-radius: 8px;
+                        font-size: 16px;
+                        cursor: pointer;
+                      "
+                    >
+                      📤 Send Documents via WhatsApp
+                    </button>
+                  </a>
+                </div>
+
+                <label
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 15px;
+                    margin-top: 10px;
+                  "
+                >
+                  <input type="checkbox" id="photo-confirm2" required />
+                  I confirm that I have sent all required documents via
+                  WhatsApp.
+                </label>
+              </div>
+
+              <div
+                id="submit-info-2"
+                style="
+                  display: none;
+                  text-align: center;
+                  margin-top: 15px;
+                  font-size: 15px;
+                  color: #0a3c59;
+                  background-color: #e9f6ff;
+                  padding: 10px 15px;
+                  border-left: 4px solid #0a3c59;
+                  border-radius: 6px;
+                "
+              >
+                ⏳ Please wait a moment... We will contact you in a few minutes
+                for further process. 📧
+              </div>
+
+              <div style="text-align: center; margin: 20px 0">
+                <button
+                  type="submit"
+                  style="
+                    padding: 12px 30px;
+                    background-color: #0e5883;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    cursor: pointer;
+                  "
+                >
+                  Submit Application
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div
+          id="popup-container"
+          style="
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+          "
+        >
+          <div
+            style="
+              max-width: 700px;
+              background: #fff9e6;
+              color: #6b4c00;
+              font-size: 16px;
+              font-weight: 500;
+              border: 2px solid #ffdd57;
+              border-left: 6px solid #ffc107;
+              padding: 20px 25px;
+              border-radius: 10px;
+              line-height: 1.7;
+              text-align: center;
+              box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
+              font-family: 'Segoe UI', sans-serif;
+            "
+          >
+            <h2
+              id="popup-title"
+              style="margin-bottom: 12px; font-size: 22px; color: #5c3a00"
+            >
+              🎉 Success
+            </h2>
+            <p id="popup-message">Your premium message goes here.</p>
+            <button
+              id="popup-ok-btn"
+              style="
+                margin-top: 20px;
+                padding: 10px 22px;
+                background: #ffc107;
+                color: #4a3200;
+                border: none;
+                border-radius: 6px;
+                font-size: 15px;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+                transition: background 0.3s ease;
+              "
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/popup.js"></script>
+
+    <script>
+      // ✅ Show popup function
+      function showPopup(title, message) {
+        const popupContainer = document.getElementById("popup-container");
+        document.getElementById("popup-title").innerText = title;
+        document.getElementById("popup-message").innerText = message;
+        popupContainer.style.display = "flex";
+      }
+
+      // ✅ Popup close with OK button and outside click
+      document.addEventListener("DOMContentLoaded", () => {
+        const popupContainer = document.getElementById("popup-container");
+        const okBtn = document.getElementById("popup-ok-btn");
+
+        if (popupContainer && okBtn) {
+          okBtn.addEventListener("click", () => {
+            popupContainer.style.display = "none";
+          });
+
+          window.addEventListener("click", (event) => {
+            if (event.target === popupContainer) {
+              popupContainer.style.display = "none";
+            }
+          });
+        }
+      });
+
+      // ✅ Firebase Config
+      const firebaseConfig = {
+        apiKey: "AIzaSyDI8FxDlILMR93AD69_E48qwMKJuSUqFXg",
+        authDomain: "digital-solutions-ae7ad.firebaseapp.com",
+        databaseURL:
+          "https://digital-solutions-ae7ad-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "digital-solutions-ae7ad",
+        storageBucket: "digital-solutions-ae7ad.appspot.com",
+        messagingSenderId: "761041929019",
+        appId: "1:761041929019:web:d228c928c6bd40ea4fed1e",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+
+      // ✅ PAN Form submission
+      document
+        .getElementById("pan-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!document.getElementById("photo-confirm").checked) {
+            alert("❗ Confirm that you sent your photo via WhatsApp.");
+            return;
+          }
+          // ** Changes to save data by date **
+          const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+          const data = {
+            name: document.getElementById("name").value,
+            mobile: document.getElementById("mobile").value,
+            email: document.getElementById("email").value,
+            timestamp: new Date().toISOString(),
+            photoSent: true,
+          };
+
+          db.ref("panCardApplications/" + today)
+            .push(data)
+            .then(() => {
+              showPopup(
+                "✅ Submission Successful",
+                "We have received your request. Our team will call you shortly for further process. keep your phone turned on and nearby."
+              );
+              this.reset();
+              document.getElementById("photo-confirm").checked = false;
+              document.getElementById("submit-info").style.display = "none";
+            });
+        });
+
+      // ✅ PAN + PVC Form submission
+      document
+        .getElementById("pan-pvc-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!document.getElementById("photo-confirm2").checked) {
+            alert("❗ Confirm that you sent all documents via WhatsApp.");
+            return;
+          }
+          // ** Changes to save data by date **
+          const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+
+          const data = {
+            name: document.getElementById("name2").value,
+            mobile: document.getElementById("mobile2").value,
+            email: document.getElementById("email2").value,
+            occupation: document.getElementById("occupation").value,
+            timestamp: new Date().toISOString(),
+            photoSent: true,
+          };
+
+          db.ref("panCardPVCApplications/" + today)
+            .push(data)
+            .then(() => {
+              showPopup(
+                "✅ Submission Successful",
+                "We have received your request. Our team will call you shortly for further process. keep your phone turned on and nearby."
+              );
+              this.reset();
+              document.getElementById("photo-confirm2").checked = false;
+              document.getElementById("submit-info-2").style.display = "none";
+            });
+        });
+    </script>
+
+    <script>
+      const accordions = document.querySelectorAll(".accordion-btn");
+      accordions.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // Close all other accordions
+          accordions.forEach((otherBtn) => {
+            if (otherBtn !== btn) {
+              otherBtn.classList.remove("active");
+              const otherContent = otherBtn.nextElementSibling;
+              otherContent.style.maxHeight = null;
+            }
+          });
+
+          // Toggle the current accordion
+          btn.classList.toggle("active");
+          const content = btn.nextElementSibling;
+          if (btn.classList.contains("active")) {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } else {
+            content.style.maxHeight = null;
+          }
+        });
+      });
+    </script>
+
+    <script>
+      const slider = document.querySelector(".image-slider");
+      const slides = document.querySelector(".slides");
+      const images = slides.querySelectorAll("img");
+
+      let currentIndex = 0;
+      const totalSlides = images.length;
+
+      // ✅ প্রথম আর শেষ ইমেজ কপি করে clone যোগ করা হচ্ছে (infinite loop effect এর জন্য)
+      const firstClone = images[0].cloneNode(true);
+      const lastClone = images[totalSlides - 1].cloneNode(true);
+
+      slides.appendChild(firstClone); // শেষে প্রথম clone
+      slides.insertBefore(lastClone, images[0]); // শুরুতে শেষ clone
+
+      // সব ইমেজ আবার select করো (clone সহ)
+      const allImages = slides.querySelectorAll("img");
+
+      let index = 1; // clone এর কারণে আসল শুরু হবে index=1
+      const slideWidth = images[0].clientWidth;
+
+      slides.style.transform = `translateX(-${index * slideWidth}px)`;
+
+      function moveToNextSlide() {
+        index++;
+        slides.style.transition = "transform 0.5s ease-in-out";
+        slides.style.transform = `translateX(-${index * slideWidth}px)`;
+
+        // clone এ গেলে সাথে সাথে আসল স্লাইডে jump করবে
+        setTimeout(() => {
+          if (index === allImages.length - 1) {
+            slides.style.transition = "none";
+            index = 1; // আসল প্রথম ইমেজে ফিরবে
+            slides.style.transform = `translateX(-${index * slideWidth}px)`;
+          }
+        }, 500);
+      }
+
+      setInterval(moveToNextSlide, 3000);
+
+      // window resize হলে height adjust করবো
+      window.addEventListener("resize", () => {
+        slider.style.height = allImages[index].clientHeight + "px";
+      });
+
+      // প্রথমে height set করো
+      slider.style.height = allImages[index].clientHeight + "px";
+    </script>
+  </body>
+</html>

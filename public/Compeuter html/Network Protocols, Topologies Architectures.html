@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Your Issue</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="../Compeuter css/Assembling & Disassembling Computers.css"
+    />
+    <link rel="stylesheet" href="../css/popup.css" />
+  </head>
+
+  <body>
+    <button class="fixed-back-btn" onclick="history.back()">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+
+    <div class="page-header">
+      <h1>Network Protocols, Topologies & Architectures</h1>
+      <p>→ Understanding of Network Protocols, Topologies, and Architectures</p>
+    </div>
+
+    <div class="container">
+      <form id="issue-form">
+        <label for="name">Full Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          placeholder="Enter your full name"
+        />
+
+        <label for="phone">Mobile Number:</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          placeholder="Enter mobile number"
+        />
+
+        <label for="email">Email Address:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          placeholder="Enter email address"
+        />
+
+        <label for="address">Current Address:</label>
+        <textarea
+          id="address"
+          name="address"
+          required
+          placeholder="Enter your current address"
+          rows="3"
+        ></textarea>
+
+        <!-- ✅ Current Location Button -->
+        <div style="text-align: right; margin-top: 5px; margin-bottom: 15px">
+          <button
+            type="button"
+            onclick="getCurrentLocation()"
+            style="
+              font-size: 14px;
+              background-color: #f2f2f2;
+              color: #0a3c59;
+              border: 1px solid #ccc;
+              padding: 6px 12px;
+              border-radius: 5px;
+              cursor: pointer;
+            "
+          >
+            📍 Use Current Location
+          </button>
+        </div>
+
+        <label for="issue">Describe Your Issue:</label>
+        <textarea
+          id="issue"
+          name="issue"
+          required
+          placeholder="Write your issue here"
+          rows="5"
+        ></textarea>
+
+        <div style="text-align: center">
+          <button type="submit">Submit Request</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- ✅ Popup -->
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup-box">
+        <h2>✅ Request Submitted</h2>
+        <p>
+          Thank you for submitting your issue.<br />
+          Our team will review your request and contact you shortly.<br />
+          Please keep your phone nearby.
+        </p>
+        <button onclick="closePopup()">OK</button>
+      </div>
+    </div>
+
+    <!-- ✅ Firebase + Popup + Location Logic -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDI8FxDlILMR93AD69_E48qwMKJuSUqFXg",
+        authDomain: "digital-solutions-ae7ad.firebaseapp.com",
+        databaseURL:
+          "https://digital-solutions-ae7ad-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "digital-solutions-ae7ad",
+        storageBucket: "digital-solutions-ae7ad.appspot.com",
+        messagingSenderId: "761041929019",
+        appId: "1:761041929019:web:d228c928c6bd40ea4fed1e",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+
+      function closePopup() {
+        document.getElementById("popup-overlay").style.display = "none";
+      }
+
+      document
+        .getElementById("issue-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const data = {
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            address: document.getElementById("address").value,
+            issue: document.getElementById("issue").value,
+            timestamp: new Date().toISOString(),
+          };
+
+          db.ref("Assembling & Disassembling Computers")
+            .push(data)
+            .then(() => {
+              this.reset();
+              document.getElementById("popup-overlay").style.display = "flex";
+            })
+            .catch((error) => {
+              alert("❌ Error: " + error.message);
+            });
+        });
+
+      function getCurrentLocation() {
+        if (!navigator.geolocation) {
+          showPopup(
+            "❌ Error",
+            "Geolocation is not supported by your browser."
+          );
+          return;
+        }
+
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude.toFixed(6);
+            const lon = position.coords.longitude.toFixed(6);
+
+            // Reverse geocoding with Nominatim API
+            fetch(
+              `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                if (data && data.display_name) {
+                  document.getElementById("address").value = data.display_name;
+                } else {
+                  document.getElementById(
+                    "address"
+                  ).value = `Latitude: ${lat}, Longitude: ${lon}`;
+                }
+              })
+              .catch(() => {
+                document.getElementById(
+                  "address"
+                ).value = `Latitude: ${lat}, Longitude: ${lon}`;
+              });
+          },
+          function (error) {
+            showPopup(
+              "❌ Error",
+              "Unable to retrieve your location. Please allow location access."
+            );
+          }
+        );
+      }
+    </script>
+  </body>
+</html>

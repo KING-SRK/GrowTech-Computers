@@ -1,0 +1,312 @@
+/* 🌟 Premium Neumorphism Footer */
+.footer-simple {
+  background: #e0e5ec;
+  padding: 50px 20px;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  box-shadow: inset 6px 6px 12px #b9bcc0, inset -6px -6px 12px #ffffff;
+  border-radius: 30px 30px 0 0;
+}
+
+.footer-simple-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-simple-left,
+.footer-simple-right {
+  flex: 1 1 300px;
+}
+
+.footer-simple-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-simple-logo-img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  box-shadow: 6px 6px 12px #b9bcc0, -6px -6px 12px #ffffff;
+  background: #e0e5ec;
+  padding: 8px;
+}
+
+.footer-simple-site-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #009ead;
+}
+
+.footer-simple-tagline {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* 🌟 Social Icons */
+/* সোশ্যাল আইকন */
+.footer-simple-social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+.footer-simple-social-links a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  padding: 6px;
+  background: #e0e5ec;
+  box-shadow: 6px 6px 12px #b9bcc0, -6px -6px 12px #ffffff;
+  transition: all 0.3s ease;
+}
+.footer-simple-social-links a img:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 16px #b9bcc0, -8px -8px 16px #ffffff;
+}
+
+/* 🌟 Contact Info */
+.footer-simple-contact h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0049ae;
+  margin-bottom: 15px;
+}
+
+.footer-simple-contact p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.contact-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-icons-inline {
+  display: flex;
+  gap: 10px;
+}
+
+.contact-circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e0e5ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 6px 6px 12px #b9bcc0, -6px -6px 12px #ffffff;
+  transition: all 0.3s ease;
+}
+.contact-circle-btn:hover {
+  transform: scale(1.1);
+}
+
+/* 🌟 Navigation Links */
+.footer-simple-nav {
+  list-style: none;
+  margin-top: 20px;
+}
+.footer-simple-nav li {
+  margin: 10px 0;
+}
+.footer-simple-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  background: #e0e5ec;
+  padding: 8px 14px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 6px 6px 12px #b9bcc0, -6px -6px 12px #ffffff;
+  transition: all 0.3s ease;
+}
+.footer-simple-nav a:hover {
+  color: #009ead;
+  transform: translateY(-3px);
+  box-shadow: 8px 8px 16px #b9bcc0, -8px -8px 16px #ffffff;
+}
+
+/* 🌟 Bottom Line */
+.footer-simple-bottom {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+  padding-top: 20px;
+  border-top: 1px solid #d1d9e6;
+}
+
+/* Tablet (≥768px) */
+@media (min-width: 768px) {
+  .footer-simple-container {
+    flex-direction: row; /* পাশে পাশে আসবে */
+    align-items: flex-start;
+    gap: 60px;
+  }
+
+  .footer-simple-left,
+  .footer-simple-right {
+    flex: 1;
+  }
+
+  .footer-simple-site-title {
+    font-size: 28px;
+  }
+
+  .footer-simple-tagline {
+    font-size: 15px;
+  }
+
+  .footer-simple-contact h4 {
+    font-size: 20px;
+  }
+
+  .footer-simple-contact p {
+    font-size: 15px;
+  }
+
+  .footer-simple-nav a {
+    font-size: 15px;
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .footer-simple {
+    padding: 70px 40px; /* বেশি padding */
+  }
+
+  .footer-simple-container {
+    max-width: 1300px;
+    gap: 80px;
+  }
+
+  .footer-simple-site-title {
+    font-size: 32px;
+  }
+
+  .footer-simple-tagline {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .footer-simple-social-links a img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .footer-simple-contact h4 {
+    font-size: 22px;
+  }
+
+  .footer-simple-contact p {
+    font-size: 16px;
+  }
+
+  .footer-simple-nav {
+    display: flex;
+    gap: 50px;
+  }
+
+  .footer-simple-nav a {
+    font-size: 20px;
+    padding: 10px 18px;
+  }
+
+  .footer-simple-bottom {
+    font-size: 14px;
+  }
+
+  /* Social icon container নিচে নামবে */
+  .footer-simple-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+  .footer-simple-social-links {
+    margin-top: 100px; /* Contact এর নিচে নামবে */
+    justify-content: flex-start;
+    gap: 25px;
+  }
+
+
+  .footer-simple-social-links a img {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* ফোন নম্বর ও Gmail টেক্সট */
+.contact-info {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Default: Mobile + Tablet */
+.contact-desktop {
+  display: none;
+}
+.contact-mobile-tab {
+  display: block;
+}
+
+.contact-icons-inline {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.contact-circle-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #e0e5ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 6px 6px 12px #b9bcc0, -6px -6px 12px #ffffff;
+  transition: all 0.3s ease;
+}
+.contact-circle-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  .contact-info {
+    font-size: 16px;
+  }
+
+  .contact-mobile-tab {
+    display: none;
+  }
+  .contact-desktop {
+    display: block;
+    margin-top: 15px;
+  }
+
+  /* PC তে আইকন বড় হবে */
+  .contact-circle-btn {
+    width: 55px;
+    height: 55px;
+  }
+  .contact-circle-btn img {
+    width: 40px;
+    height: 40px;
+  }
+}

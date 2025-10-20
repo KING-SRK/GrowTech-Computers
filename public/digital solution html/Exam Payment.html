@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Payment</title>
+    <link rel="stylesheet" href="../digital solution css/mobile.css" />
+    <link rel="stylesheet" href="../css/popup.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- ✅ Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  </head>
+  <body>
+    <button class="fixed-back-btn" onclick="history.back()">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+
+    <div class="page-header">
+      <h1>Exam Fee Payment</h1>
+      <p class="note highlight-important">
+        📝 Please fill in the details accurately. We will process your payment
+        after verification.
+      </p>
+    </div>
+
+    <form id="exam-form">
+      <div class="container">
+        <div class="info-form">
+          <label for="name">Full Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+
+          <label for="mobile">Mobile Number:</label>
+          <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            placeholder="e.g. 9876543210"
+            required
+          />
+
+          <label for="university">University Name:</label>
+          <input
+            type="text"
+            id="university"
+            name="university"
+            placeholder="Enter university name"
+            required
+          />
+
+          <label for="college">College Name:</label>
+          <input
+            type="text"
+            id="college"
+            name="college"
+            placeholder="Enter college name"
+            required
+          />
+
+          <label for="amount">Payment Amount (₹):</label>
+          <input
+            type="number"
+            id="amount"
+            name="amount"
+            placeholder="Enter amount"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="submit-container">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <!-- ✅ Popup JS -->
+    <script src="../js/popup.js"></script>
+
+    <!-- ✅ Firebase Logic -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDI8FxDlILMR93AD69_E48qwMKJuSUqFXg",
+        authDomain: "digital-solutions-ae7ad.firebaseapp.com",
+        databaseURL:
+          "https://digital-solutions-ae7ad-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "digital-solutions-ae7ad",
+        storageBucket: "digital-solutions-ae7ad.appspot.com",
+        messagingSenderId: "761041929019",
+        appId: "1:761041929019:web:d228c928c6bd40ea4fed1e",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      document
+        .getElementById("exam-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const mobile = document.getElementById("mobile").value.trim();
+          const university = document.getElementById("university").value.trim();
+          const college = document.getElementById("college").value.trim();
+          const amount = document.getElementById("amount").value.trim();
+
+          const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+
+          const formData = {
+            name,
+            mobile,
+            university,
+            college,
+            amount,
+            timestamp: new Date().toISOString(),
+          };
+
+          database
+            .ref("examPayments/" + today)
+            .push(formData)
+            .then(() => {
+              showPopup(
+                "✅ Payment Request Submitted",
+                "We have received your request. Our team will call you shortly for further process. keep your phone turned on and nearby."
+              );
+              document.getElementById("exam-form").reset();
+            })
+            .catch((error) => {
+              alert("❌ Error: " + error.message);
+            });
+        });
+    </script>
+  </body>
+</html>
