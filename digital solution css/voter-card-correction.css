@@ -8,7 +8,9 @@
 body {
   background: #e5e7eb; /* Neumorphic background */
   min-height: 100vh;
-  padding: 40px 20px;
+  /* padding টি সবদিকে থাকবে */
+  padding: 20px;
+  /* body এর ভিতরের কন্টেন্টকে কেন্দ্রে আনতে এই দুটি প্রপার্টি প্রয়োজন */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,13 +24,11 @@ body {
   height: 50px;
   border-radius: 50%;
   border: none;
-  background: #e0e5ec; /* Base neumorphic color */
+  background: #e0e5ec;
   color: #111827;
   font-size: 20px;
   cursor: pointer;
   z-index: 9999;
-
-  /* Neumorphic shadow */
   box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
   transition: all 0.3s ease;
 }
@@ -39,7 +39,7 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 50px; /* এখানে icon এর সাইজ বাড়াও */
+  font-size: 50px;
 }
 
 .fixed-back-btn:hover {
@@ -50,18 +50,18 @@ body {
 /* ✅ হেডার */
 .page-header {
   text-align: center;
-  margin-bottom: 25px;
   max-width: 700px;
+  width: 100%;
 }
 
 .page-header h1 {
   font-size: 28px;
   color: #2c3e50;
-  margin-bottom: 10px;
 }
 
 /* ✅ গুরুত্বপূর্ন বার্তা */
 .highlight-important {
+  width: 90%; /* ফোন ভিউতে */
   max-width: 700px;
   margin: 15px auto 30px auto;
   font-size: 16px;
@@ -75,13 +75,13 @@ body {
   border: none;
 }
 
-/* ✅ প্রতিটি ফর্ম কার্ড */
+/* ✅ প্রতিটি ফর্ম কার্ড (Container) */
 .container {
   background-color: #e5e7eb;
   padding: 30px 25px;
   margin: 30px auto 30px auto;
   border-radius: 20px;
-  width: 100%;
+  width: 90%; /* ✅ ফোন ভিউতে স্ক্রিনের বেশিরভাগ অংশ নেবে */
   max-width: 500px;
   box-shadow: 8px 8px 16px #c1c3c6, -8px -8px 16px #ffffff;
 }
@@ -209,11 +209,8 @@ body {
   padding: 16px 20px;
   border-radius: 12px;
   text-align: center;
-
-  /* Neumorphic shadow (same style as .note) */
   box-shadow: 5px 5px 10px #c1c3c6, -5px -5px 10px #ffffff;
-
-  border-left: 6px solid #b30000; /* ✅ note এর মতো left border */
+  border-left: 6px solid #b30000;
 }
 
 .submit-note.Voter-find {
@@ -226,14 +223,11 @@ body {
   padding: 16px 20px;
   border-radius: 12px;
   text-align: center;
-
-  /* Neumorphic shadow (same style as .note) */
   box-shadow: 5px 5px 10px #c1c3c6, -5px -5px 10px #ffffff;
-
-  border-left: 6px solid #b30000; /* ✅ note এর মতো left border */
+  border-left: 6px solid #b30000;
 }
 
-/* ✅ Popup Modal Styling */
+/* ✅ Popup Modal Styling (no change needed) */
 .popup-overlay {
   display: none;
   position: fixed;
@@ -290,86 +284,95 @@ body {
   color: #005edb;
 }
 
-/* ✅ Image Slider */
+/* ✅ Image Slider (Mobile View) */
 .image-slider {
-  display: none;
+  display: block; /* ফোন ভিউতে দেখা যাবে */
+  width: 90%;
+  max-width: 300px; /* ✅ স্লাইডারকে ছোট করার জন্য */
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #e5e7eb;
+  box-shadow: inset 4px 4px 8px #b9bcc0, inset -4px -4px 8px #ffffff;
+  border: 1px solid #d1d5db;
+  position: relative;
 }
 
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 20px;
+}
+
+/* --- DESKTOP STYLES (min-width: 1024px) --- */
 @media (min-width: 1024px) {
+  /* 1. Box Container (স্লাইডার ও ফর্মকে পাশাপাশি রাখবে) */
   .box {
     display: flex;
-    gap: 200px;
-    justify-content: space-evenly;
+    flex-direction: row;
+    gap: 40px; /* স্লাইডার ও ফর্মের মধ্যে 40px দূরত্ব */
+    justify-content: center; /* পুরো বক্সটিকে কেন্দ্রে আনার জন্য */
     align-items: flex-start;
-  }
-
-  .page-header {
-    text-align: start;
-    margin-bottom: 20px;
-    color: #333;
-    margin-left: 150px;
-  }
-  
-  .image-slider {
-    width: 500px;
-    max-width: 700px;
-    margin: 30px auto 30px auto;
-    overflow: hidden;
-    border-radius: 20px;
-
-    /* Neumorphic frame */
-    background: #e5e7eb;
-    box-shadow: inset 6px 6px 12px #b9bcc0, inset -6px -6px 12px #ffffff;
-    border: 1px solid #d1d5db;
-
-    position: relative;
-    display: block;
-  }
-
-  /* slides container */
-  .slides {
-    display: flex;
-    transition: transform 1s ease-in-out;
-  }
-
-  /* individual images */
-  .slides img {
     width: 100%;
-    flex-shrink: 0;
-    height: auto; /* image proportion অনুযায়ী */
-    object-fit: contain; /* zoom বা crop হবে না */
-    display: block;
-    border-radius: 20px; /* image edges card অনুযায়ী rounded */
+    max-width: 1100px; /* ✅ একটি সর্বোচ্চ চওড়া ঠিক করা হলো */
   }
 
-  /* Slide animation */
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    20% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-100%);
-    }
-    45% {
-      transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(-200%);
-    }
-    70% {
-      transform: translateX(-200%);
-    }
-    75% {
-      transform: translateX(-300%);
-    }
-    95% {
-      transform: translateX(-300%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  /* 2. Page Header ঠিক করা */
+  .page-header {
+    text-align: left; /* বামদিকে align */
+    width: 100%;
+    max-width: 1100px; /* .box এর সাথে চওড়া মিলিয়ে নেওয়া হলো */
+    /* fixed-back-btn এর নিচে নামানোর জন্য top padding যোগ করা হলো */
+    padding-top: 50px;
+    margin-bottom: 25px;
+    margin-left: 0; /* ✅ margin-left সরানো হলো */
+    /* যেহেতু body তে align-items: center আছে, তাই এটি কাজ করবে */
+  }
+
+  /* 3. Left Section (Note ও Slider) */
+  .left {
+    /* দুটি কলামে 45% ও 55% ভাগ করা হলো */
+    width: 45%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    /* ✅ Note এবং Slider কে left কলামের কেন্দ্রে রাখা হলো */
+    align-items: center;
+  }
+
+  /* 4. Note Section */
+  .highlight-important {
+    width: 100%; /* left কলামের পুরো চওড়া নেবে */
+    max-width: none;
+    margin: 15px 0 30px 0;
+  }
+
+  /* 5. Image Slider ঠিক করা */
+  .image-slider {
+    width: 100%;
+    max-width: 400px;
+    margin: 0; /* ✅ অতিরিক্ত মার্জিন সরিয়ে centre এ রাখা হলো */
+  }
+
+  /* 6. Form Container */
+  .container {
+    width: 55%; /* দুটি কলামে 45% ও 55% ভাগ করা হলো */
+    max-width: 600px;
+    margin: 0; /* ✅ অতিরিক্ত মার্জিন সরানো হলো */
+  }
+
+  /* 7. Footer Note ঠিক করা */
+  .submit-note {
+    width: 100%;
+    max-width: 600px;
+    margin: 15px 0 30px 0;
   }
 }

@@ -6,9 +6,10 @@
 }
 
 body {
-  background: #e0e5ec; /* neumorphic ব্যাকগ্রাউন্ড */
+  background: #e0e5ec; /* Neumorphic ব্যাকগ্রাউন্ড */
   min-height: 100vh;
-  padding: 40px 20px;
+  /* top padding 40px, বাম/ডান 20px, bottom 20px */
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,19 +17,17 @@ body {
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px; /* উপরের থেকে দূরত্ব */
-  left: 20px; /* বাম থেকে দূরত্ব */
+  top: 20px;
+  left: 20px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   border: none;
-  background: #e0e5ec; /* Base neumorphic color */
+  background: #e0e5ec;
   color: #111827;
   font-size: 20px;
   cursor: pointer;
   z-index: 9999;
-
-  /* Neumorphic shadow */
   box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
   transition: all 0.3s ease;
 }
@@ -39,7 +38,7 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 50px; /* এখানে icon এর সাইজ বাড়াও */
+  font-size: 50px;
 }
 
 .fixed-back-btn:hover {
@@ -47,21 +46,21 @@ body {
   transform: scale(0.95);
 }
 
-/* ✅ হেডার */
+/* ✅ হেডার (Title) */
 .page-header {
   text-align: center;
-  margin-bottom: 25px;
   max-width: 700px;
+  width: 100%;
 }
 
 .page-header h1 {
   font-size: 28px;
   color: #2c3e50;
-  margin-bottom: 10px;
 }
 
 /* ✅ গুরুত্বপূর্ন বার্তা */
 .highlight-important {
+  width: 90%;
   max-width: 700px;
   margin: 15px auto 30px auto;
   font-size: 16px;
@@ -72,7 +71,6 @@ body {
   border-radius: 12px;
   line-height: 1.7;
   text-align: center;
-
   box-shadow: inset 6px 6px 12px #c5c9ce, inset -6px -6px 12px #ffffff;
 }
 
@@ -83,7 +81,7 @@ body {
   margin: 20px auto;
   border-radius: 16px;
   box-shadow: 9px 9px 16px #c5c9ce, -9px -9px 16px #ffffff;
-  width: 100%;
+  width: 95%; /* মোবাইল ভিউতে সামান্য চওড়া বাড়ানো হলো */
   max-width: 500px;
   transition: 0.3s ease;
 }
@@ -104,7 +102,6 @@ body {
   color: #333;
   display: flex;
   align-items: center;
-
   box-shadow: inset 3px 3px 6px #c5c9ce, inset -3px -3px 6px #ffffff;
   transition: 0.3s ease;
 }
@@ -129,7 +126,6 @@ body {
   border: none;
   border-radius: 30px;
   cursor: pointer;
-
   box-shadow: 6px 6px 12px #c5c9ce, -6px -6px 12px #ffffff;
   transition: 0.3s ease;
 }
@@ -156,7 +152,6 @@ body {
   border-radius: 10px;
   outline: none;
   background: #e0e5ec;
-
   box-shadow: inset 3px 3px 6px #c5c9ce, inset -3px -3px 6px #ffffff;
   transition: 0.3s ease;
 }
@@ -183,7 +178,6 @@ body {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-
   box-shadow: 6px 6px 12px #c5c9ce, -6px -6px 12px #ffffff;
   transition: 0.3s ease;
 }
@@ -194,6 +188,7 @@ body {
 
 /* ✅ নিচের বার্তা */
 .submit-note {
+  width: 90%;
   max-width: 700px;
   margin: 30px auto 15px auto;
   font-size: 16px;
@@ -204,9 +199,13 @@ body {
   border-radius: 12px;
   line-height: 1.7;
   text-align: center;
-
   box-shadow: inset 6px 6px 12px #c5c9ce, inset -6px -6px 12px #ffffff;
 }
+
+/* Voter-find স্টাইলটি উপরে .submit-note এর সাথে মার্জ করা হয়েছে, তাই এটি অপ্রয়োজনীয় */
+/* .submit-note.Voter-find {
+    ...
+} */
 
 /* ✅ Popup Modal Styling */
 .popup-overlay {
@@ -217,7 +216,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 999;
+  z-index: 9999;
   justify-content: center;
   align-items: center;
 }
@@ -228,7 +227,6 @@ body {
   max-width: 400px;
   border-radius: 16px;
   text-align: center;
-
   box-shadow: 9px 9px 16px #c5c9ce, -9px -9px 16px #ffffff;
 }
 
@@ -251,7 +249,6 @@ body {
   border-radius: 8px;
   font-size: 14px;
   cursor: pointer;
-
   box-shadow: 6px 6px 12px #c5c9ce, -6px -6px 12px #ffffff;
 }
 
@@ -259,80 +256,97 @@ body {
   box-shadow: inset 6px 6px 12px #c5c9ce, inset -6px -6px 12px #ffffff;
 }
 
-
-/* ✅ Image Slider */
+/* ✅ Image Slider (Mobile View) */
 .image-slider {
-  display: none;
+  display: block;
+  width: 90%;
+  max-width: 300px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #e0e5ec; /* ✅ Background Neumorphic কালার অনুযায়ী পরিবর্তন */
+  box-shadow: inset 4px 4px 8px #c5c9ce, inset -4px -4px 8px #ffffff; /* ✅ Shadow পরিবর্তন */
+  border: 1px solid #d1d5db;
+  position: relative;
 }
 
+/* --- DESKTOP STYLES (min-width: 1024px) --- */
 @media (min-width: 1024px) {
+  /* 1. Page Header: .box এর সাথে অ্যালাইনমেন্ট */
+  .page-header {
+    text-align: left;
+    width: 100%;
+    max-width: 1000px; /* .box এর সমান বা কাছাকাছি চওড়া */
+    margin-bottom: 25px;
+    padding-top: 50px;
+    margin-left: 0;
+  }
+
+  /* 2. Box Container (স্লাইডার ও ফর্মকে পাশাপাশি রাখবে) */
   .box {
     display: flex;
-    gap: 200px;
-    justify-content: space-evenly;
+    flex-direction: row;
+    gap: 40px; /* স্লাইডার ও ফর্মের মধ্যে দূরত্ব */
+
+    /* ✅ দুটি কলামকে কেন্দ্রের কাছাকাছি আনার জন্য */
+    justify-content: center;
+
     align-items: flex-start;
+    width: 100%;
+    max-width: 1000px; /* ✅ পুরো কন্টেইনারের সর্বোচ্চ চওড়া */
+    margin-top: 0; /* body padding কাজ করবে */
   }
 
+  /* 3. Left Section (Note ও Slider) */
+  .left {
+    width: 45%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Note এবং Slider কে left কলামের কেন্দ্রে রাখা হলো */
+  }
+
+  /* 4. Image Slider */
   .image-slider {
-    width: 500px;
-    max-width: 700px;
-    margin: 30px auto 30px auto;
-    overflow: hidden;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 400px; /* ✅ ডেক্সটপে স্লাইডারের সাইজ */
+    margin: 30px 0; /* Left কলামের মধ্যে কেন্দ্রে আনার জন্য margin: auto না দিয়ে 0 রাখা হলো */
 
     /* Neumorphic frame */
-    background: #e5e7eb;
-    box-shadow: inset 6px 6px 12px #b9bcc0, inset -6px -6px 12px #ffffff;
+    background: #e0e5ec; /* ✅ Neumorphic কালার অনুযায়ী পরিবর্তন */
+    box-shadow: inset 6px 6px 12px #c5c9ce, inset -6px -6px 12px #ffffff; /* ✅ Shadow পরিবর্তন */
     border: 1px solid #d1d5db;
-
-    position: relative;
     display: block;
   }
 
-  /* slides container */
-  .slides {
-    display: flex;
-    transition: transform 1s ease-in-out;
+  /* 5. Form Container */
+  .card-container {
+    width: 55%;
+    max-width: 600px;
+    margin-top: 0;
+    /* কার্ড-কে তার কন্টেইনারের মধ্যে বাম দিকে ঠেলে দেওয়ার জন্য */
+    justify-content: flex-start;
   }
 
-  /* individual images */
-  .slides img {
+  /* 6. Form Card (Voter Card) */
+  .container {
     width: 100%;
-    flex-shrink: 0;
-    height: auto; /* image proportion অনুযায়ী */
-    object-fit: contain; /* zoom বা crop হবে না */
-    display: block;
-    border-radius: 20px; /* image edges card অনুযায়ী rounded */
+    max-width: 600px;
+    margin: 0;
   }
 
-  /* Slide animation */
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    20% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-100%);
-    }
-    45% {
-      transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(-200%);
-    }
-    70% {
-      transform: translateX(-200%);
-    }
-    75% {
-      transform: translateX(-300%);
-    }
-    95% {
-      transform: translateX(-300%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+  /* 7. Note Section */
+  .highlight-important {
+    width: 100%;
+    max-width: 400px; /* left কলামের ভেতরের স্লাইডারের সাথে অ্যালাইন করার জন্য */
+    margin: 0;
   }
+
+  /* 8. Footer Note */
+  .submit-note {
+    width: 100%;
+    max-width: 600px; /* ফর্ম কার্ডের সাথে চওড়া মিলিয়ে নেওয়া হলো */
+    margin: 15px 0 30px 0;
+  }
+
 }

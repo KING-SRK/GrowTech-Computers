@@ -1,4 +1,6 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -10,19 +12,17 @@ body {
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px; /* উপরের থেকে দূরত্ব */
-  left: 20px; /* বাম থেকে দূরত্ব */
-  width: 50px;
-  height: 50px;
+  top: 20px;
+  left: 20px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
-  background: #e0e5ec; /* Base neumorphic color */
+  background: #e0e5ec;
   color: #111827;
   font-size: 20px;
   cursor: pointer;
   z-index: 9999;
-
-  /* Neumorphic shadow */
   box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
   transition: all 0.3s ease;
 }
@@ -33,7 +33,7 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 50px; /* এখানে icon এর সাইজ বাড়াও */
+  font-size: 45px;
 }
 
 .fixed-back-btn:hover {
@@ -43,19 +43,18 @@ body {
 
 /* Title */
 .title {
-  text-align: left;
-  margin-bottom: 20px;
+  text-align: center;
   color: #333;
-  margin-left: 100px;
 }
 
+/* Base Card Styling */
 .voter-card {
   background: #e5e7eb;
-  padding: 40px;             /* ✅ padding বেশি দিলে card মোটা দেখাবে */
+  padding: 40px;
   border-radius: 20px;
-  width: 100%;                /* ✅ সবসময় অর্ধেক চওড়া */
-  min-height: 400px;         /* ✅ card লম্বাও হবে */
-  margin-left: auto;         /* ✅ ডানদিকে align হবে */
+  width: 100%;
+  min-height: 400px;
+  margin-left: auto;
   box-shadow: 10px 10px 20px #c9ccd3, -10px -10px 20px #ffffff;
 }
 
@@ -69,7 +68,10 @@ label {
 
 /* Inputs & Select */
 select,
-input[type="text"] {
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  /* সকল ইনপুট টাইপ যোগ করা হয়েছে */
   width: 100%;
   padding: 10px 14px;
   border: none;
@@ -82,7 +84,9 @@ input[type="text"] {
 }
 
 select:focus,
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
   box-shadow: inset 1px 1px 2px #c9ccd3, inset -1px -1px 2px #ffffff;
 }
 
@@ -99,41 +103,12 @@ input[type="text"]:focus {
   color: #444;
 }
 
-.details-section input {
-  padding: 10px 14px;
-  border: none;
-  border-radius: 10px;
-  background: #e5e7eb;
-  box-shadow: inset 3px 3px 6px #c9ccd3, inset -3px -3px 6px #ffffff;
-  outline: none;
-  transition: 0.2s;
-}
-
-.details-section input:focus {
-  box-shadow: inset 1px 1px 2px #c9ccd3, inset -1px -1px 2px #ffffff;
-}
-
-/* OR Text */
-.or-text {
-  text-align: center;
-  margin: 15px 0;
-  font-weight: bold;
-  color: #555;
-}
-
-/* Section Title */
-.form-section h2 {
-  font-size: 18px;
-  font-weight: bold;
-  color: #222;
-}
-
 /* Important Note */
 .submit-note {
   width: 100%;
   max-width: 400px;
   height: fit-content;
-  margin: 15px 0 30px 0;
+  margin: 15px auto 30px auto; /* কেন্দ্রে আনতে auto ব্যবহার */
   font-size: 1rem;
   font-weight: 500;
   color: #b30000;
@@ -144,21 +119,6 @@ input[type="text"]:focus {
   box-shadow: 6px 6px 12px #c1c3c6, -6px -6px 12px #ffffff;
   border-left: 6px solid #b30000;
   transition: all 0.3s ease-in-out;
-}
-
-
-/* Team Note (Yellow Box) */
-.submit-note.team {
-  max-width: 700px;
-  margin: 30px auto 15px auto;
-  font-size: 16px;
-  font-weight: 500;
-  color: #6b4c00;
-  background: #e5e7eb;
-  padding: 16px 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: inset 4px 4px 8px #c9ccd3, inset -4px -4px 8px #ffffff;
 }
 
 /* Submit Button */
@@ -187,10 +147,39 @@ input[type="text"]:focus {
   box-shadow: inset 3px 3px 6px #c9ccd3, inset -3px -3px 6px #ffffff;
 }
 
-/* ✅ Image Slider */
+/* --- IMAGE SLIDER STYLES (Mobile First) --- */
+
 .image-slider {
-  display: none;
+  display: block;
+  width: 100%;
+  max-width: 300px; /* ফোনে সর্বোচ্চ 400px */
+  margin: 15px auto;
+  border-radius: 15px;
+  overflow: hidden;
+
+  background: #e5e7eb;
+  box-shadow: inset 4px 4px 8px #b9bcc0, inset -4px -4px 8px #ffffff;
+  border: 1px solid #d1d5db;
+
+  position: relative;
 }
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* width JavaScript দ্বারা সেট হবে */
+}
+
+.slides img {
+  /* width JavaScript দ্বারা সেট হবে */
+  flex-shrink: 0; /* ছবি ছোট হবে না */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 15px;
+}
+
+/* --- DESKTOP STYLES (min-width: 1024px) --- */
 
 @media (min-width: 1024px) {
   .box {
@@ -200,66 +189,29 @@ input[type="text"]:focus {
     align-items: flex-start;
   }
 
+  .title {
+    margin-left: 0; /* কেন্দ্রে বা বক্সে alignment ঠিক করতে */
+  }
+
+  .submit-note {
+    margin: 15px 0 30px 0; /* বামদিকে align করতে */
+  }
+
+  .voter-card {
+    width: 50%; /* ডেক্সটপে অর্ধেক চওড়া */
+    margin-left: 0;
+  }
+
+  .left {
+    width: 50%;
+  }
+
   .image-slider {
-    width: 500px;
-    max-width: 700px;
-    margin: 30px auto 30px auto;
-    overflow: hidden;
-    border-radius: 20px;
-
-    /* Neumorphic frame */
-    background: #e5e7eb;
-    box-shadow: inset 6px 6px 12px #b9bcc0, inset -6px -6px 12px #ffffff;
-    border: 1px solid #d1d5db;
-
-    position: relative;
-    display: block;
-  }
-
-  /* slides container */
-  .slides {
-    display: flex;
-    transition: transform 1s ease-in-out;
-  }
-
-  /* individual images */
-  .slides img {
     width: 100%;
-    flex-shrink: 0;
-    height: auto; /* image proportion অনুযায়ী */
-    object-fit: contain; /* zoom বা crop হবে না */
-    display: block;
-    border-radius: 20px; /* image edges card অনুযায়ী rounded */
-  }
+    max-width: 500px; /* ডেক্সটপে বড় সাইজ */
+    margin: 30px 0; /* বামদিকে align করতে */
 
-  /* Slide animation */
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    20% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-100%);
-    }
-    45% {
-      transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(-200%);
-    }
-    70% {
-      transform: translateX(-200%);
-    }
-    75% {
-      transform: translateX(-300%);
-    }
-    95% {
-      transform: translateX(-300%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+    /* Neumorphic frame আপডেট */
+    box-shadow: inset 6px 6px 12px #b9bcc0, inset -6px -6px 12px #ffffff;
   }
 }
