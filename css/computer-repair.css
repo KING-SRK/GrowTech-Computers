@@ -113,7 +113,7 @@ body {
   font-size: 1.5rem; /* বড় এবং স্পষ্ট */
   font-weight: 700;
   margin: 15px 0 10px;
-  color: #333;
+  color: #007bff;
 }
 
 .product-description {
@@ -126,11 +126,13 @@ body {
 /* বাটন (Get a Quote) */
 .get-a-quote {
   margin-top: 10px;
-  padding: 12px 20px;
+  padding: 10px 15px;
   background: #e5e7eb;
+  color: #0c124a;
   border: none;
   border-radius: 50px;
   font-weight: bold;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: -4px -4px 8px #ffffff,

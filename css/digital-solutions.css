@@ -105,7 +105,7 @@ body {
 
 .mini-offer-card h3 {
   font-size: 1.25rem;
-  color: #333;
+  color: #007bff;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -145,9 +145,9 @@ body {
 /* 🔘 View More Button */
 .view-more-button {
   background: #e0e5ec;
-  color: #333;
-  padding: 10px 18px; /* padding কমিয়ে উচ্চতা কমানো */
-  font-size: 15px;   /* ফন্ট সামান্য ছোট */
+  color: #0c124a;
+  padding: 10px 15px; /* padding কমিয়ে উচ্চতা কমানো */
+  font-size: 1.1rem;   /* ফন্ট সামান্য ছোট */
   font-weight: 600;
   border: none;
   border-radius: 25px; /* radius হালকা কমানো */

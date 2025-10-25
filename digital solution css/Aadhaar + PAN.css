@@ -8,7 +8,7 @@
 body {
   background: #e5e7eb; /* Neumorphic background */
   min-height: 100vh;
-  padding: 40px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,19 +17,17 @@ body {
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px; /* উপরের থেকে দূরত্ব */
-  left: 20px; /* বাম থেকে দূরত্ব */
-  width: 50px;
-  height: 50px;
+  top: 20px;
+  left: 20px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
-  background: #e0e5ec; /* Base neumorphic color */
+  background: #e0e5ec;
   color: #111827;
-  font-size: 20px;
+  font-size: 45px;
   cursor: pointer;
   z-index: 9999;
-
-  /* Neumorphic shadow */
   box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
   transition: all 0.3s ease;
 }
@@ -40,7 +38,6 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 50px; /* এখানে icon এর সাইজ বাড়াও */
 }
 
 .fixed-back-btn:hover {
@@ -51,16 +48,13 @@ body {
 /* ✅ হেডার */
 .page-header {
   text-align: center;
-  margin-bottom: 25px;
   max-width: 700px;
-  padding: 20px;
 }
 
 /* ✅ হেডার টাইটেল */
 .page-header h1 {
-  font-size: 28px;
+  font-size: 22px;
   color: #2c3e50;
-  margin-bottom: 10px;
 }
 
 /* ✅ গুরুত্বপূর্ন বার্তা */
@@ -261,79 +255,52 @@ body {
   box-shadow: inset 4px 4px 8px #c8c9cc, inset -4px -4px 8px #ffffff;
 }
 
-/* ✅ Image Slider */
+/* 🌟 Image Slider (Mobile First) */
 .image-slider {
-  display: none;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #e5e7eb;
+  box-shadow: inset 4px 4px 8px #b9bcc0, inset -4px -4px 8px #ffffff;
+  border: 1px solid #d1d5db;
+  position: relative;
 }
 
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slides img {
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+/* 🌟 Desktop Responsive */
 @media (min-width: 1024px) {
   .box {
     display: flex;
-    gap: 200px;
+    gap: 80px;
     justify-content: space-evenly;
     align-items: flex-start;
   }
 
   .image-slider {
-    width: 500px;
-    max-width: 700px;
-    margin: 30px auto 30px auto;
-    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    margin: 40px 0;
     border-radius: 20px;
-
-    /* Neumorphic frame */
     background: #e5e7eb;
     box-shadow: inset 6px 6px 12px #b9bcc0, inset -6px -6px 12px #ffffff;
-    border: 1px solid #d1d5db;
-
-    position: relative;
-    display: block;
   }
 
-  /* slides container */
-  .slides {
-    display: flex;
-    transition: transform 1s ease-in-out;
-  }
-
-  /* individual images */
   .slides img {
-    width: 100%;
-    flex-shrink: 0;
-    height: auto; /* image proportion অনুযায়ী */
-    object-fit: contain; /* zoom বা crop হবে না */
-    display: block;
-    border-radius: 20px; /* image edges card অনুযায়ী rounded */
-  }
-
-  /* Slide animation */
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-    20% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-100%);
-    }
-    45% {
-      transform: translateX(-100%);
-    }
-    50% {
-      transform: translateX(-200%);
-    }
-    70% {
-      transform: translateX(-200%);
-    }
-    75% {
-      transform: translateX(-300%);
-    }
-    95% {
-      transform: translateX(-300%);
-    }
-    100% {
-      transform: translateX(0);
-    }
+    border-radius: 20px;
   }
 }

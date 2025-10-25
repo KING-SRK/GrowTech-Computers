@@ -25,20 +25,20 @@
 
     <div class="page-header">
       <h1>Voter Card Find</h1>
-
-      <div class="submit-note Voter-find">
-        📝 <strong>Note:</strong> Fill the exact details below carefully.
-      </div>
     </div>
 
     <div class="box">
       <div class="image-slider">
         <div class="slides">
-          <img src="../images/voter-img1.png" alt="Slide 1" />
-          <img src="../images/voter-img2.png" alt="Slide 2" />
-          <img src="../images/voter-img3.png" alt="Slide 3" />
-          <img src="../images/voter-img4.png" alt="Slide 4" />
+          <img src="../images png/voter-img1.png" alt="Slide 1" />
+          <img src="../images png/voter-img2.png" alt="Slide 2" />
+          <img src="../images png/voter-img3.png" alt="Slide 3" />
+          <img src="../images png/voter-img4.png" alt="Slide 4" />
         </div>
+      </div>
+
+      <div class="submit-note Voter-find">
+        📝 <strong>Note:</strong> Fill the exact details below carefully.
       </div>
       <form id="voter-form">
         <div class="container">
@@ -278,53 +278,6 @@
         });
     </script>
 
-    <script>
-      const slider = document.querySelector(".image-slider");
-      const slides = document.querySelector(".slides");
-      const images = slides.querySelectorAll("img");
-
-      let currentIndex = 0;
-      const totalSlides = images.length;
-
-      // ✅ প্রথম আর শেষ ইমেজ কপি করে clone যোগ করা হচ্ছে (infinite loop effect এর জন্য)
-      const firstClone = images[0].cloneNode(true);
-      const lastClone = images[totalSlides - 1].cloneNode(true);
-
-      slides.appendChild(firstClone); // শেষে প্রথম clone
-      slides.insertBefore(lastClone, images[0]); // শুরুতে শেষ clone
-
-      // সব ইমেজ আবার select করো (clone সহ)
-      const allImages = slides.querySelectorAll("img");
-
-      let index = 1; // clone এর কারণে আসল শুরু হবে index=1
-      const slideWidth = images[0].clientWidth;
-
-      slides.style.transform = `translateX(-${index * slideWidth}px)`;
-
-      function moveToNextSlide() {
-        index++;
-        slides.style.transition = "transform 0.5s ease-in-out";
-        slides.style.transform = `translateX(-${index * slideWidth}px)`;
-
-        // clone এ গেলে সাথে সাথে আসল স্লাইডে jump করবে
-        setTimeout(() => {
-          if (index === allImages.length - 1) {
-            slides.style.transition = "none";
-            index = 1; // আসল প্রথম ইমেজে ফিরবে
-            slides.style.transform = `translateX(-${index * slideWidth}px)`;
-          }
-        }, 500);
-      }
-
-      setInterval(moveToNextSlide, 3000);
-
-      // window resize হলে height adjust করবো
-      window.addEventListener("resize", () => {
-        slider.style.height = allImages[index].clientHeight + "px";
-      });
-
-      // প্রথমে height set করো
-      slider.style.height = allImages[index].clientHeight + "px";
-    </script>
+    <script src="../js/slider.js"></script>
   </body>
 </html>

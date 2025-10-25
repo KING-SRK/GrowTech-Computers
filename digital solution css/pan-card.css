@@ -8,25 +8,22 @@
 body {
   background: #e0e5ec; /* neumorphic background */
   min-height: 100vh;
-  /* ফোন ভিউতে অতিরিক্ত 40px padding এর বদলে 20px করা হলো */
   padding: 20px 15px;
 }
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px; /* উপরের থেকে দূরত্ব */
-  left: 20px; /* বাম থেকে দূরত্ব */
-  width: 50px;
-  height: 50px;
+  top: 20px;
+  left: 20px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
-  background: #e0e5ec; /* Base neumorphic color */
+  background: #e0e5ec;
   color: #111827;
-  font-size: 20px;
+  font-size: 45px;
   cursor: pointer;
   z-index: 9999;
-
-  /* Neumorphic shadow */
   box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
   transition: all 0.3s ease;
 }
@@ -37,7 +34,6 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 50px;
 }
 
 .fixed-back-btn:hover {
@@ -146,24 +142,6 @@ label {
   font-size: 15px;
   font-weight: 600;
   color: #003147;
-}
-
-/* ✅ Button Style */
-button {
-  padding: 12px 28px;
-  background: #e0e5ec;
-  color: #003147;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 6px 6px 12px #c5c9ce, -6px -6px 12px #ffffff;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  box-shadow: inset 2px 2px 5px #c5c9ce, inset -2px -2px 5px #ffffff;
 }
 
 /* ✅ Warning / Note */

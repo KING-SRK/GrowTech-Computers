@@ -21,6 +21,12 @@
 
     <div class="page-header">
       <h1>PAN PVC Order</h1>
+      <div class="image-slider">
+        <div class="slides">
+          <img src="../images png/pan-img1.png" alt="Slide 1" />
+          <img src="../images png/pan-img2.png" alt="Slide 2" />
+        </div>
+      </div>
     </div>
 
     <div class="container">
@@ -70,8 +76,19 @@
             href="https://wa.me/918902709631?text=Hi, I submitted my PAN+PVC application. Sending my Aadhar, Signature & Passport Photo."
             target="_blank"
           >
-            <button type="button" class="whatsapp-btn">
-              📤 Send Documents via WhatsApp
+            <button
+              type="button"
+              style="
+                padding: 10px 25px;
+                background-color: #25d366;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                cursor: pointer;
+              "
+            >
+              📤 Send Photo via WhatsApp
             </button>
           </a>
         </div>
@@ -94,8 +111,8 @@
           email. Stay active and check your inbox. 📧
         </div>
 
-        <div style="text-align: center; margin-top: 25px">
-          <button type="submit" class="submit-btn">Submit Application</button>
+        <div class="submit-container">
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
@@ -151,5 +168,7 @@
             });
         });
     </script>
+
+    <script src="../js/slider.js"></script>
   </body>
 </html>
