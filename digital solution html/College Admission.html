@@ -25,9 +25,6 @@
 
     <div class="box">
       <div class="left">
-        <div class="submit-note highlight-important">
-          📝 <strong>Note:</strong> Fill the exact ditails below carefully.
-        </div>
         <div class="image-slider">
           <div class="slides">
             <img src="../images/college-img1.png" alt="Slide 1" />
@@ -36,50 +33,21 @@
             <img src="../images/college-img4.png" alt="Slide 4" />
           </div>
         </div>
+        <div class="submit-note highlight-important">
+          📝 <strong>Note:</strong> Fill the exact ditails below carefully.
+        </div>
       </div>
 
-      <div class="card-container">
+      <div class="right-content">
         <form id="college-admission-form">
-          <div class="voter-card">
-            <h3>State: West Bengal</h3>
-
-            <label for="district">Select District:</label>
-            <select id="district" name="district">
-              <option value="">-- Select District --</option>
-              <option value="alipurduar">Alipurduar</option>
-              <option value="bankura">Bankura</option>
-              <option value="birbhum">Birbhum</option>
-              <option value="coochbehar">Cooch Behar</option>
-              <option value="dakshin_dinajpur">Dakshin Dinajpur</option>
-              <option value="darjeeling">Darjeeling</option>
-              <option value="hooghly">Hooghly</option>
-              <option value="howrah">Howrah</option>
-              <option value="jalpaiguri">Jalpaiguri</option>
-              <option value="jhargram">Jhargram</option>
-              <option value="kalimpong">Kalimpong</option>
-              <option value="kolkata">Kolkata</option>
-              <option value="malda">Malda</option>
-              <option value="murshidabad">Murshidabad</option>
-              <option value="nadia">Nadia</option>
-              <option value="north_24_parganas">North 24 Parganas</option>
-              <option value="paschim_bardhaman">Paschim Bardhaman</option>
-              <option value="paschim_medinipur">Paschim Medinipur</option>
-              <option value="purba_bardhaman">Purba Bardhaman</option>
-              <option value="purba_medinipur">Purba Medinipur</option>
-              <option value="purulia">Purulia</option>
-              <option value="south_24_parganas">South 24 Parganas</option>
-              <option value="uttar_dinajpur">Uttar Dinajpur</option>
-            </select>
-
+          <div class="card">
             <div class="form-section">
               <h2 style="font-size: 18px">Personal Details</h2>
 
-              <p style="color: #555; font-size: 14px; margin-bottom: 10px">
-                Enter your name as per your Aadhaar Card
-              </p>
-
               <div class="details-section">
-                <label for="full-name">Full Name</label>
+                <label for="personal-full-name"
+                  >Full Name (As per Aadhaar Card)</label
+                >
                 <input
                   type="text"
                   id="personal-full-name"
@@ -91,53 +59,23 @@
             </div>
 
             <div class="form-section">
-              <h2 style="font-size: 18px">Guardian Details</h2>
-
-              <div class="details-section">
-                <label for="relation-type">Guardian</label>
-                <select id="relation-type" name="relation-type" required>
-                  <option value="">-- Select --</option>
-                  <option value="father">Father</option>
-                  <option value="mother">Mother</option>
-                  <option value="husband">Husband</option>
-                  <option value="wife">Wife</option>
-                  <option value="guardian">
-                    Legal Guardian (Orphan / Third Gender)
-                  </option>
-                </select>
-
-                <label for="guardian-full-name">Full Name</label>
-                <input
-                  type="text"
-                  id="guardian-full-name"
-                  name="guardian-full-name"
-                  placeholder="Enter Full Name"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="form-section">
               <h2 style="font-size: 18px">Contact Details</h2>
 
-              <p style="color: #555; font-size: 14px; margin-bottom: 10px">
-                Provide a valid mobile number and email address.
-              </p>
-
               <div class="details-section">
-                <label>Mobile Number</label>
+                <label for="mobile-number">Mobile Number</label>
                 <div style="margin-bottom: 5px"></div>
 
                 <input
-                  type="text"
+                  type="tel"
                   id="mobile-number"
                   name="mobile-number"
                   placeholder="Enter 10-digit Mobile Number"
                   pattern="[0-9]{10}"
+                  maxlength="10"
                   required
                 />
 
-                <label>Email ID</label>
+                <label for="email-id">Email ID</label>
                 <div style="margin-bottom: 5px"></div>
 
                 <input
@@ -150,23 +88,25 @@
               </div>
             </div>
 
-            <div class="container" style="margin-top: 10px">
-              <p style="font-size: 16px; color: #0a3c59; text-align: center">
-                Send the following 9 documents via WhatsApp:
+            <div class="container" style="margin-top: 20px">
+              <p
+                style="
+                  font-size: 16px;
+                  color: #0a3c59;
+                  text-align: center;
+                  font-weight: 600;
+                "
+              >
+                Send the following documents via WhatsApp:
               </p>
               <ul style="color: #0a3c59; margin-left: 25px; font-size: 15px">
                 <li>Aadhar Card</li>
                 <li>Your Signature on white paper</li>
                 <li>Passport size photo</li>
-                <li>
-                  Class 10th Registration, Admit Card, Certificate and Marksheet
-                </li>
-                <li>
-                  Class 12th Registration, Admit Card, Certificate and Marksheet
-                </li>
+                <li>Class 10th & 12th documents (Reg/Admit/Mark/Cert.)</li>
               </ul>
 
-              <div style="text-align: center; margin: 10px 0">
+              <div style="text-align: center; margin: 15px 0">
                 <a
                   href="https://wa.me/918902709631?text=Hi, I submitted my College Admission request. Sending my documents."
                   target="_blank"
@@ -202,12 +142,7 @@
                 WhatsApp.
               </label>
             </div>
-
-            <div class="submit-note highlight-important">
-              📞 Our team will call you shortly to collect further details.<br />
-              Keep your phone turned on and nearby. Thank you!
-            </div>
-
+            
             <div class="submit-container">
               <button type="submit">Submit</button>
             </div>
@@ -238,25 +173,15 @@
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
+          // ** শুধুমাত্র প্রয়োজনীয় ফিল্ডের মান সংগ্রহ করা হচ্ছে **
           const documentConfirmCheckbox =
             document.getElementById("document-confirm");
-          const district = document.getElementById("district").value;
+
           const personalFullName =
             document.getElementById("personal-full-name").value;
-          const relationType = document.getElementById("relation-type").value;
-          const guardianFullName =
-            document.getElementById("guardian-full-name").value;
+
           const mobileNumber = document.getElementById("mobile-number").value;
           const emailId = document.getElementById("email-id").value;
-          const address = document.getElementById("address").value;
-          const postOffice = document.getElementById("post-office").value;
-          const policeStation = document.getElementById("police-station").value;
-          const pinCode = document.getElementById("pin-code").value;
-          const place = document.getElementById("place").value;
-          const school10th = document.getElementById("school-10th").value;
-          const board10th = document.getElementById("board-10th").value;
-          const school12th = document.getElementById("school-12th").value;
-          const board12th = document.getElementById("board-12th").value;
 
           if (!documentConfirmCheckbox.checked) {
             alert(
@@ -268,31 +193,14 @@
           // ** Changes to save data by date **
           const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
 
+          // ** শুধুমাত্র প্রয়োজনীয় ডেটা Firebase-এ সেভ করা হচ্ছে **
           const formData = {
-            district: district,
             personalDetails: {
-              fullName: personalFullName, // Use the new variable here
-            },
-            guardianDetails: {
-              relationType: relationType,
-              fullName: guardianFullName, // Use the new variable here
+              fullName: personalFullName,
             },
             contactDetails: {
               mobile: mobileNumber,
               email: emailId,
-            },
-            presentAddress: {
-              address: address,
-              postOffice: postOffice,
-              policeStation: policeStation,
-              pinCode: pinCode,
-              place: place,
-            },
-            academicDetails: {
-              school10th: school10th,
-              board10th: board10th,
-              school12th: school12th,
-              board12th: board12th,
             },
             timestamp: new Date().toISOString(),
             documentsSent: true,

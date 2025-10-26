@@ -6,15 +6,14 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: #e5e7eb; /* Neumorphic background */
+  background: #e5e7eb;
   padding: 20px;
-  margin: 0;
 }
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 5px;
+  left: 5px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -43,33 +42,35 @@ body {
 
 .title {
   text-align: center;
-  font-size: 28px;
+  font-size: 26px;
   margin-bottom: 20px;
   color: #333;
 }
 
 /* ✅ Box Container (Mobile: block, Desktop: flex) */
 .box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+}
+
+.left {
   width: 100%;
 }
 
 .submit-note {
-  width: 90%;
-  max-width: 500px;
-  margin: 15px auto 30px auto;
-  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  height: fit-content;
+  margin: 15px auto 0 auto; /* কেন্দ্রে আনতে auto ব্যবহার */
+  font-size: 1rem;
   font-weight: 500;
   color: #b30000;
   background: #e5e7eb;
-  padding: 16px 20px;
+  padding: 20px;
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 5px 5px 10px #c1c3c6, -5px -5px 10px #ffffff;
+  text-align: left;
+  box-shadow: 6px 6px 12px #c1c3c6, -6px -6px 12px #ffffff;
   border-left: 6px solid #b30000;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Card Container */
@@ -80,7 +81,8 @@ body {
 }
 
 /* Voter Card Neumorphic style */
-.voter-card {
+
+.card {
   background: #e5e7eb;
   padding: 25px;
   border-radius: 20px;
@@ -155,11 +157,11 @@ input[type="email"] {
 /* Image Slider (Mobile View) */
 .image-slider {
   display: block;
-  width: 90%;
-  max-width: 300px;
-  margin: 20px auto;
+  width: 100%;
+  max-width: 400px;
+  margin: 15px auto;
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 20px;
   background: #e5e7eb;
   box-shadow: inset 4px 4px 8px #b9bcc0, inset -4px -4px 8px #ffffff;
   border: 1px solid #d1d5db;
@@ -168,77 +170,54 @@ input[type="email"] {
 
 .slides {
   display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.5s ease-in-out;
 }
 
 .slides img {
   width: 100%;
-  flex-shrink: 0;
+  max-width: 400px;
+  max-height: 280px;
   height: auto;
   object-fit: contain;
+  border-radius: 15px;
   display: block;
-  border-radius: 20px;
+  margin: 0 auto;
 }
 
 /* --- DESKTOP STYLES (min-width: 1024px) --- */
 @media (min-width: 1024px) {
-  /* 1. Box কনটেইনারের লেআউট */
   .box {
     display: flex;
-    flex-direction: row;
-    gap: 40px; /* 20px এর বদলে 40px গ্যাপ রাখলাম */
-    /* ✅ দুটি কলামকে দুই পাশে সরিয়ে মাঝখানে ফাঁকা জায়গা তৈরি করবে */
-    justify-content: space-between;
-
-    /* ✅ Box-কে স্ক্রিনের কেন্দ্রে নিয়ে আসবে এবং সর্বোচ্চ চওড়া সেট করা হলো */
-    max-width: 1100px;
-    margin: 0 auto;
-
+    gap: 20px;
+    justify-content: space-evenly;
     align-items: flex-start;
   }
 
-  /* 2. Title ঠিক করা */
   .title {
-    text-align: center; /* center ই থাকুক */
-    margin-left: 0; /* ✅ margin-left: 100px; সরিয়ে দেওয়া হলো */
-    padding-top: 50px; /* fixed back-btn এর নিচে নামানোর জন্য */
+    margin-left: 0; /* কেন্দ্রে বা বক্সে alignment ঠিক করতে */
   }
 
-  /* 3. Left কলাম (Note ও Slider) */
-  .left {
-    width: 45%; /* সামান্য কমানো হলো */
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* ✅ সব আইটেম কেন্দ্রে আনা হলো */
-  }
-
-  /* Note section ঠিক করা */
   .submit-note {
-    width: 100%;
-    margin: 15px 0 30px 0;
-    max-width: 500px;
-  }
-
-  /* 4. Card Container (Form) */
-  .card-container {
-    width: 55%; /* ফর্মের জন্য সামান্য বেশি চওড়া */
-    /* ✅ ফর্ম কার্ডকে এই 55% এর মধ্যে কেন্দ্রে আনার জন্য */
-    justify-content: center;
+    margin: 15px 0 30px 0; /* বামদিকে align করতে */
   }
 
   .voter-card {
-    width: 100%;
-    margin: 0; /* অতিরিক্ত মার্জিন নেই */
-    max-width: 600px;
+    width: 50%; /* ডেক্সটপে অর্ধেক চওড়া */
+    margin-left: 0;
   }
 
-  /* 5. Image Slider ঠিক করা */
+  .left {
+    width: 50%;
+  }
+
   .image-slider {
     width: 100%;
-    max-width: 400px; /* 450px থেকে 400px এ কমানো হলো */
-    margin: 30px auto; /* কেন্দ্রে আনা হলো */
+    max-width: 500px; /* ডেক্সটপে বড় সাইজ */
+    margin: 30px 0; /* বামদিকে align করতে */
+
+    /* Neumorphic frame আপডেট */
     box-shadow: inset 6px 6px 12px #b9bcc0, inset -6px -6px 12px #ffffff;
-    display: block;
   }
 }

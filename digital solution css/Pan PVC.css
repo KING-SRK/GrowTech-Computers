@@ -14,8 +14,8 @@ body {
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 5px;
+  left: 5px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -137,12 +137,29 @@ input[type="checkbox"] {
   transform: scale(1.2);
 }
 
+.submit-note {
+  width: 100%;
+  max-width: 400px;
+  height: fit-content;
+  margin: 15px auto 30px auto; /* কেন্দ্রে আনতে auto ব্যবহার */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #b30000;
+  background: #e5e7eb;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 6px 6px 12px #c1c3c6, -6px -6px 12px #ffffff;
+  border-left: 6px solid #b30000;
+  transition: all 0.3s ease-in-out;
+}
+
 /* 🌟 Image Slider (Mobile First) */
 .image-slider {
   display: block;
   width: 100%;
-  max-width: 300px;
-  margin: 20px auto;
+  max-width: 400px;
+  margin: 15px auto;
   border-radius: 15px;
   overflow: hidden;
   background: #e5e7eb;
@@ -153,15 +170,20 @@ input[type="checkbox"] {
 
 .slides {
   display: flex;
-  transition: transform 0.6s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slides img {
-  flex-shrink: 0;
   width: 100%;
+  max-width: 400px;
+  max-height: 280px;
   height: auto;
   object-fit: contain;
   border-radius: 15px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* 🌟 Desktop Responsive */

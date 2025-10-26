@@ -6,15 +6,17 @@
 }
 
 body {
-  background: #e0e5ec; /* neumorphic background */
+  background: #e0e5ec;
+  /* neumorphic background */
   min-height: 100vh;
   padding: 20px 15px;
 }
 
+/* --- Fixed Back Button --- */
 .fixed-back-btn {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 5px;
+  left: 5px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -41,7 +43,7 @@ body {
   transform: scale(0.95);
 }
 
-/* ✅ হেডার */
+/* --- Header --- */
 .page-header {
   text-align: center;
   margin-bottom: 30px;
@@ -54,76 +56,19 @@ body {
   text-align: center;
 }
 
-/* ✅ Accordion Container - এটা সম্ভবত আপনার ফর্ম/কার্ড কন্টেইনার */
-.accordion-container {
-  max-width: 600px;
-  margin: 30px auto 30px auto;
-}
-
-/* ✅ প্রতিটি আইটেম */
-.accordion-item {
-  margin-bottom: 20px;
+/* --- Form Container (Right Content in HTML) --- */
+/* নতুন ফর্ম কন্টেইনার স্টাইল - মোবাইল ভিউতে এটি .left এর নিচে বসবে */
+.right-content {
+  max-width: 600px; /* ফর্মের জন্য একটি নির্দিষ্ট চওড়া সেট করা হলো */
+  margin: 30px auto 30px auto; /* এটি মোবাইল ভিউতে পেজের মাঝখানে রাখবে */
+  padding: 20px;
   border-radius: 16px;
-  overflow: hidden;
   background: #e0e5ec;
   box-shadow: 6px 6px 12px #c5c9ce, -6px -6px 12px #ffffff;
   transition: all 0.3s ease;
 }
 
-/* ✅ Accordion Button */
-.accordion-btn {
-  width: 100%;
-  text-align: left;
-  padding: 18px 20px;
-  font-size: 18px;
-  font-weight: 600;
-  background: #e0e5ec;
-  color: #003147;
-  border: none;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  box-shadow: inset 2px 2px 5px #c5c9ce, inset -2px -2px 5px #ffffff;
-  transition: 0.3s ease;
-}
-
-.accordion-btn:hover {
-  box-shadow: inset 1px 1px 2px #c5c9ce, inset -1px -1px 2px #ffffff;
-}
-
-/* অ্যারো আইকন */
-.accordion-btn::after {
-  content: "➕";
-  font-size: 18px;
-  transition: transform 0.3s ease;
-}
-
-.accordion-btn.active::after {
-  content: "➖";
-  transform: rotate(180deg);
-}
-
-/* ✅ Accordion Content */
-.accordion-content {
-  background: #f1f4fa;
-  overflow: hidden;
-  max-height: 0;
-  padding: 0 20px;
-  border-top: 1px solid #ddd;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-
-.accordion-content p {
-  padding: 15px 0;
-  font-size: 15px;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* ✅ Input Fields */
+/* --- Input Fields --- */
 input {
   padding: 10px 14px;
   border: none;
@@ -131,7 +76,7 @@ input {
   box-shadow: inset 4px 4px 8px #c8c9cc, inset -4px -4px 8px #ffffff;
   outline: none;
   transition: 0.2s;
-  width: 100%; /* ফোন ভিউতে ইনপুট পুরো চওড়া হবে */
+  width: 100%;
 }
 
 input:focus {
@@ -144,7 +89,7 @@ label {
   color: #003147;
 }
 
-/* ✅ Warning / Note */
+/* --- Warning / Note --- */
 .submit-note {
   max-width: 500px;
   margin: 15px auto 30px auto;
@@ -159,7 +104,7 @@ label {
   border-left: 6px solid #b30000;
 }
 
-/* ✅ Checkbox */
+/* --- Checkbox --- */
 input[type="checkbox"] {
   width: auto;
   transform: scale(1.2);
@@ -167,7 +112,7 @@ input[type="checkbox"] {
   box-shadow: none;
 }
 
-/* ✅ Popup neumorphic */
+/* --- Popup neumorphic --- */
 #popup-container > div {
   background: #e0e5ec !important;
   border: none !important;
@@ -185,34 +130,36 @@ input[type="checkbox"] {
   box-shadow: inset 2px 2px 5px #c5c9ce, inset -2px -2px 5px #ffffff !important;
 }
 
-/* ✅ Image Slider (Mobile View) */
+/* --- Image Slider (Mobile View) --- */
 .image-slider {
-  display: block; /* ফোন ভিউতে স্লাইডার দেখা যাবে */
+  display: block;
   width: 100%;
-  max-width: 300px; /* ফোনে সর্বোচ্চ চওড়া */
-  margin: 15px auto; /* কেন্দ্রে আনা হলো */
+  max-width: 400px;
+  margin: 15px auto;
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 20px;
   background: #e5e7eb;
   box-shadow: inset 4px 4px 8px #b9bcc0, inset -4px -4px 8px #ffffff;
   border: 1px solid #d1d5db;
   position: relative;
 }
 
-/* slides container */
 .slides {
   display: flex;
-  transition: transform 0.5s ease-in-out; /* JavaScript এর transition 0.5s এর জন্য */
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
 }
 
-/* individual images */
 .slides img {
-  width: 100%; /* JS দ্বারা ওভাররাইড হবে, কিন্তু ডিফল্ট 100% */
-  flex-shrink: 0;
+  width: 100%;
+  max-width: 400px;
+  max-height: 280px;
   height: auto;
   object-fit: contain;
+  border-radius: 15px;
   display: block;
-  border-radius: 20px;
+  margin: 0 auto;
 }
 
 /* --- DESKTOP STYLES (min-width: 1024px) --- */
@@ -226,21 +173,32 @@ input[type="checkbox"] {
 
   .left {
     width: 50%;
+    max-width: 500px; /* left কলামের সর্বোচ্চ চওড়া নির্ধারণ */
+  }
+
+  /* নতুন ফর্ম কন্টেইনার স্টাইল - ডেস্কটপ ভিউতে .left এর পাশে বসবে */
+  .right-content {
+    width: 50%;
+    margin: 0; /* ডেস্কটপে আর auto মার্জিন দরকার নেই */
+    max-width: 500px; /* right কলামের সর্বোচ্চ চওড়া নির্ধারণ */
   }
 
   /* fixed-back-btn এর বামদিকে 20px মার্জিন থাকার কারণে */
   .page-header h1 {
-    text-align: left; /* বামদিকে alignment */
-    margin-left: 110px; /* back button (20px) + তার width (50px) + কিছু spacing (40px) = 110px */
+    text-align: left;
+    /* বামদিকে alignment */
+    margin-left: 110px;
+    /* back button (20px) + তার width (45px) + কিছু spacing (45px) = 110px */
   }
 
   .image-slider {
     width: 100%;
-    max-width: 500px; /* ডেক্সটপে সামান্য বড় সাইজ */
-    margin: 30px 0; /* বামদিকে align করতে auto সরিয়ে 0 করা হলো */
+    max-width: 500px;
+    /* ডেক্সটপে সামান্য বড় সাইজ */
+    margin: 30px 0;
+    /* বামদিকে align করতে auto সরিয়ে 0 করা হলো */
     box-shadow: inset 6px 6px 12px #b9bcc0, inset -6px -6px 12px #ffffff;
-    display: block; /* নিশ্চিত করা হলো */
+    display: block;
+    /* নিশ্চিত করা হলো */
   }
-
-  /* স্লাইডারের CSS অ্যানিমেশন যেহেতু JavaScript দিয়ে হ্যান্ডেল করা হচ্ছে, তাই CSS @keyframes 'slide' সরিয়ে দেওয়া হলো। */
 }

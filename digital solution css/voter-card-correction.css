@@ -18,8 +18,8 @@ body {
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 5px;
+  left: 5px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -46,6 +46,10 @@ body {
   transform: scale(0.95);
 }
 
+.box {
+  width: 100%;
+}
+
 /* ✅ হেডার */
 .page-header {
   text-align: center;
@@ -58,29 +62,13 @@ body {
   color: #2c3e50;
 }
 
-/* ✅ গুরুত্বপূর্ন বার্তা */
-.highlight-important {
-  width: 90%; /* ফোন ভিউতে */
-  max-width: 700px;
-  margin: 15px auto 30px auto;
-  font-size: 16px;
-  font-weight: 500;
-  color: #b30000;
-  background: #e5e7eb;
-  border-radius: 15px;
-  padding: 16px 20px;
-  text-align: center;
-  box-shadow: 5px 5px 10px #c1c3c6, -5px -5px 10px #ffffff;
-  border: none;
-}
-
 /* ✅ প্রতিটি ফর্ম কার্ড (Container) */
 .container {
   background-color: #e5e7eb;
   padding: 30px 25px;
-  margin: 30px auto 30px auto;
+  margin: 30px 0;
   border-radius: 20px;
-  width: 90%; /* ✅ ফোন ভিউতে স্ক্রিনের বেশিরভাগ অংশ নেবে */
+  width: 100%; /* ✅ ফোন ভিউতে স্ক্রিনের বেশিরভাগ অংশ নেবে */
   max-width: 500px;
   box-shadow: 8px 8px 16px #c1c3c6, -8px -8px 16px #ffffff;
 }
@@ -199,31 +187,20 @@ body {
 
 /* ✅ নিচের বার্তা */
 .submit-note {
-  max-width: 500px;
-  margin: 15px auto 30px auto;
-  font-size: 16px;
+  width: 100%;
+  max-width: 400px;
+  height: fit-content;
+  margin: 15px auto 30px auto; /* কেন্দ্রে আনতে auto ব্যবহার */
+  font-size: 1rem;
   font-weight: 500;
   color: #b30000;
   background: #e5e7eb;
-  padding: 16px 20px;
+  padding: 10px;
   border-radius: 12px;
-  text-align: center;
-  box-shadow: 5px 5px 10px #c1c3c6, -5px -5px 10px #ffffff;
+  text-align: left;
+  box-shadow: 6px 6px 12px #c1c3c6, -6px -6px 12px #ffffff;
   border-left: 6px solid #b30000;
-}
-
-.submit-note.Voter-find {
-  max-width: 700px;
-  margin: 15px auto 30px auto;
-  font-size: 16px;
-  font-weight: 500;
-  color: #b30000;
-  background: #e5e7eb;
-  padding: 16px 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 5px 5px 10px #c1c3c6, -5px -5px 10px #ffffff;
-  border-left: 6px solid #b30000;
+  transition: all 0.3s ease-in-out;
 }
 
 /* ✅ Popup Modal Styling (no change needed) */
@@ -285,12 +262,12 @@ body {
 
 /* ✅ Image Slider (Mobile View) */
 .image-slider {
-  display: block; /* ফোন ভিউতে দেখা যাবে */
-  width: 90%;
-  max-width: 300px; /* ✅ স্লাইডারকে ছোট করার জন্য */
-  margin: 20px auto;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 15px auto;
+  border-radius: 15px;
   overflow: hidden;
-  border-radius: 20px;
   background: #e5e7eb;
   box-shadow: inset 4px 4px 8px #b9bcc0, inset -4px -4px 8px #ffffff;
   border: 1px solid #d1d5db;
@@ -299,16 +276,20 @@ body {
 
 .slides {
   display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.5s ease-in-out;
 }
 
 .slides img {
   width: 100%;
-  flex-shrink: 0;
+  max-width: 400px;
+  max-height: 280px;
   height: auto;
   object-fit: contain;
+  border-radius: 15px;
   display: block;
-  border-radius: 20px;
+  margin: 0 auto;
 }
 
 /* --- DESKTOP STYLES (min-width: 1024px) --- */

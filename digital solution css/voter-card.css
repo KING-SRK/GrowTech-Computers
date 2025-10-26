@@ -12,8 +12,8 @@ body {
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 5px;
+  left: 5px;
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -112,7 +112,7 @@ input[type="email"]:focus {
   font-weight: 500;
   color: #b30000;
   background: #e5e7eb;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   text-align: left;
   box-shadow: 6px 6px 12px #c1c3c6, -6px -6px 12px #ffffff;
@@ -147,35 +147,35 @@ input[type="email"]:focus {
 }
 
 /* --- IMAGE SLIDER STYLES (Mobile First) --- */
-
 .image-slider {
   display: block;
   width: 100%;
-  max-width: 300px; /* ফোনে সর্বোচ্চ 400px */
+  max-width: 400px;
   margin: 15px auto;
   border-radius: 15px;
   overflow: hidden;
-
   background: #e5e7eb;
   box-shadow: inset 4px 4px 8px #b9bcc0, inset -4px -4px 8px #ffffff;
   border: 1px solid #d1d5db;
-
   position: relative;
 }
 
 .slides {
   display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.5s ease-in-out;
-  /* width JavaScript দ্বারা সেট হবে */
 }
 
 .slides img {
-  /* width JavaScript দ্বারা সেট হবে */
-  flex-shrink: 0; /* ছবি ছোট হবে না */
+  width: 100%;
+  max-width: 400px;
+  max-height: 280px;
   height: auto;
   object-fit: contain;
-  display: block;
   border-radius: 15px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* --- DESKTOP STYLES (min-width: 1024px) --- */

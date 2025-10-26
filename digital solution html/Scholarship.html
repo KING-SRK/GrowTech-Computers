@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon - GrowTech</title>
+    <title>Scholarship Admission</title>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
       rel="stylesheet"
@@ -13,133 +14,226 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #1f1c2c, #928dab);
-        color: #fff;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-      }
+    <link rel="stylesheet" href="../digital solution css/college.css" />
+    <link rel="stylesheet" href="../css/popup.css" />
 
-      .coming-soon-container {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 40px 30px;
-        border-radius: 20px;
-        box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-        max-width: 600px;
-        width: 100%;
-        backdrop-filter: blur(10px);
-      }
-
-      .coming-soon-container h1 {
-        font-size: 42px;
-        margin-bottom: 20px;
-        background: linear-gradient(to right, #ff416c, #ff4b2b);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .coming-soon-container p {
-        font-size: 18px;
-        color: #ddd;
-        margin-bottom: 30px;
-      }
-
-      .email-form input[type="email"] {
-        padding: 12px 15px;
-        border-radius: 8px;
-        border: none;
-        outline: none;
-        width: 70%;
-        max-width: 300px;
-        margin-right: 10px;
-      }
-
-      .email-form button {
-        padding: 12px 20px;
-        background-color: #ff4b2b;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
-
-      .email-form button:hover {
-        background-color: #ff416c;
-      }
-
-      .social-icons {
-        margin-top: 30px;
-      }
-
-      .social-icons a {
-        margin: 0 10px;
-        display: inline-block;
-        color: white;
-        font-size: 20px;
-        transition: transform 0.3s;
-      }
-
-      .social-icons a:hover {
-        transform: scale(1.2);
-        color: #ff4b2b;
-      }
-
-      @media (max-width: 480px) {
-        .coming-soon-container h1 {
-          font-size: 32px;
-        }
-
-        .email-form input[type="email"] {
-          width: 100%;
-          margin: 0 0 10px 0;
-        }
-
-        .email-form button {
-          width: 100%;
-        }
-      }
-    </style>
-
-    <!-- Font Awesome (For Social Icons) -->
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   </head>
   <body>
     <button class="fixed-back-btn" onclick="history.back()">
       <i class="ri-arrow-left-s-line"></i>
     </button>
 
-    <div class="coming-soon-container">
-      <h1>Coming Soon</h1>
-      <p>We’re working hard to launch our service. Stay tuned!</p>
+    <h1 class="title">Scholarship Admission</h1>
 
-      <form class="email-form">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit">Notify Me</button>
-      </form>
+    <div class="box">
+      <div class="left">
+        <div class="image-slider">
+          <div class="slides">
+            <img src="../images png/sv-scolarship-img1.png" alt="Slide 1" />
+            <img src="../images png/sv-scolarship-img2.png" alt="Slide 2" />
+            <img src="../images png/sv-scolarship-img3.png" alt="Slide 3" />
+            <img src="../images png/sv-scolarship-img4.png" alt="Slide 4" />
+            <img src="../images png/n-scolarship-img1.png" alt="Slide 5" />
+            <img src="../images png/n-scolarship-img2.png" alt="Slide 6" />
+            <img src="../images png/n-scolarship-img3.png" alt="Slide 7" />
+          </div>
+        </div>
+        <div class="submit-note highlight-important">
+          📝 <strong>Note:</strong> Fill the exact details below carefully.
+        </div>
+      </div>
 
-      <div class="social-icons">
-        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <div class="right-content">
+        <form id="college-admission-form">
+          <div class="card">
+            <div class="form-section">
+              <h2 style="font-size: 18px">Personal Details</h2>
+
+              <div class="details-section">
+                <label for="personal-full-name"
+                  >Full Name (As per Aadhaar Card)</label
+                >
+                <input
+                  type="text"
+                  id="personal-full-name"
+                  name="full-name"
+                  placeholder="Enter Full Name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 style="font-size: 18px">Contact Details</h2>
+
+              <div class="details-section">
+                <label for="mobile-number">Mobile Number</label>
+                <div style="margin-bottom: 5px"></div>
+
+                <input
+                  type="tel"
+                  id="mobile-number"
+                  name="mobile-number"
+                  placeholder="Enter 10-digit Mobile Number"
+                  pattern="[0-9]{10}"
+                  maxlength="10"
+                  required
+                />
+
+                <label for="email-id">Email ID</label>
+                <div style="margin-bottom: 5px"></div>
+
+                <input
+                  type="email"
+                  id="email-id"
+                  name="email-id"
+                  placeholder="Enter Email ID"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="container" style="margin-top: 20px">
+              <p
+                style="
+                  font-size: 16px;
+                  color: #0a3c59;
+                  text-align: center;
+                  font-weight: 600;
+                "
+              >
+                Send the following documents via WhatsApp:
+              </p>
+              <ul style="color: #0a3c59; margin-left: 25px; font-size: 15px">
+                <li>Aadhar Card</li>
+                <li>Your Signature on white paper</li>
+                <li>Passport size photo</li>
+                <li>Class 10th & 12th documents (Reg/Admit/Mark/Cert.)</li>
+              </ul>
+
+              <div style="text-align: center; margin: 15px 0">
+                <a
+                  href="https://wa.me/918902709631?text=Hi, I submitted my Scholarship Admission request. Sending my documents."
+                  target="_blank"
+                >
+                  <button
+                    type="button"
+                    style="
+                      padding: 10px 25px;
+                      background-color: #25d366;
+                      color: white;
+                      border: none;
+                      border-radius: 8px;
+                      font-size: 16px;
+                      cursor: pointer;
+                    "
+                  >
+                    📤 Send Documents via WhatsApp
+                  </button>
+                </a>
+              </div>
+
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  font-size: 15px;
+                  margin-top: 10px;
+                "
+              >
+                <input type="checkbox" id="document-confirm" required />
+                I confirm that I have sent all the required documents via
+                WhatsApp.
+              </label>
+            </div>
+            
+            <div class="submit-container">
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
+
+    <script src="../js/popup.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDI8FxDlILMR93AD69_E48qwMKJuSUqFXg",
+        authDomain: "digital-solutions-ae7ad.firebaseapp.com",
+        databaseURL:
+          "https://digital-solutions-ae7ad-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "digital-solutions-ae7ad",
+        storageBucket: "digital-solutions-ae7ad.appspot.com",
+        messagingSenderId: "761041929019",
+        appId: "1:761041929019:web:d228c928c6bd40ea4fed1e",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      document
+        .getElementById("college-admission-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // ** শুধুমাত্র প্রয়োজনীয় ফিল্ডের মান সংগ্রহ করা হচ্ছে **
+          const documentConfirmCheckbox =
+            document.getElementById("document-confirm");
+
+          const personalFullName =
+            document.getElementById("personal-full-name").value;
+
+          const mobileNumber = document.getElementById("mobile-number").value;
+          const emailId = document.getElementById("email-id").value;
+
+          if (!documentConfirmCheckbox.checked) {
+            alert(
+              "❗ Please confirm that you have sent all required documents via WhatsApp before submitting."
+            );
+            return;
+          }
+
+          // ** Changes to save data by date **
+          const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
+
+          // ** শুধুমাত্র প্রয়োজনীয় ডেটা Firebase-এ সেভ করা হচ্ছে **
+          const formData = {
+            formType: "ScholarshipAdmission", // ✅ ফর্মের ধরন পরিবর্তন করা হয়েছে
+            personalDetails: {
+              fullName: personalFullName,
+            },
+            contactDetails: {
+              mobile: mobileNumber,
+              email: emailId,
+            },
+            timestamp: new Date().toISOString(),
+            documentsSent: true,
+          };
+
+          // ✅ Firebase ডেটাবেসের পাথ পরিবর্তন করে "scholarshipRequests" ব্যবহার করা হলো
+          database
+            .ref("scholarshipRequests/" + today)
+            .push(formData)
+            .then(() => {
+              document.getElementById("college-admission-form").reset();
+              documentConfirmCheckbox.checked = false;
+
+              showPopup(
+                "✅ Submission Successful",
+                "We have received your scholarship request. Our team will call you shortly for further process. keep your phone turned on and nearby."
+              );
+            })
+            .catch((error) => {
+              alert("❌ Error: " + error.message);
+            });
+        });
+    </script>
+
+    <script src="../js/slider.js"></script>
   </body>
 </html>

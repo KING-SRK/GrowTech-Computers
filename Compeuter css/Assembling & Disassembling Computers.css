@@ -7,19 +7,17 @@ body {
 
 .fixed-back-btn {
   position: fixed;
-  top: 20px; /* উপরের থেকে দূরত্ব */
-  left: 20px; /* বাম থেকে দূরত্ব */
-  width: 50px;
-  height: 50px;
+  top: 5px;
+  left: 5px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
-  background: #e0e5ec; /* Base neumorphic color */
+  background: #e0e5ec;
   color: #111827;
-  font-size: 20px;
+  font-size: 45px;
   cursor: pointer;
   z-index: 9999;
-
-  /* Neumorphic shadow */
   box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
   transition: all 0.3s ease;
 }
@@ -30,7 +28,6 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 50px; /* এখানে icon এর সাইজ বাড়াও */
 }
 
 .fixed-back-btn:hover {
@@ -41,13 +38,12 @@ body {
 /* Page Header */
 .page-header {
   text-align: center;
-  padding: 40px 20px 20px;
-  margin: 20px auto;
+  padding: 20px;
   max-width: 800px;
 }
 
 .page-header h1 {
-  font-size: 32px;
+  font-size: 22px;
   margin-bottom: 8px;
   color: #0e5883;
 }
@@ -65,7 +61,6 @@ body {
   box-shadow: 8px 8px 16px #c8c9cc, -8px -8px 16px #ffffff;
   padding: 30px;
   max-width: 600px;
-  margin: 30px auto;
   transition: all 0.3s ease;
 }
 
@@ -136,14 +131,51 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .container {
-    margin: 15px;
-    padding: 20px;
-  }
+.submit-note {
+  width: 100%;
+  max-width: 400px;
+  height: fit-content;
+  margin: 15px auto 30px auto; /* কেন্দ্রে আনতে auto ব্যবহার */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #b30000;
+  background: #e5e7eb;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 6px 6px 12px #c1c3c6, -6px -6px 12px #ffffff;
+  border-left: 6px solid #b30000;
+  transition: all 0.3s ease-in-out;
+}
 
-  .page-header h1 {
-    font-size: 26px;
-  }
+/* --- IMAGE SLIDER STYLES (Mobile First) --- */
+.image-slider {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 15px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #e5e7eb;
+  box-shadow: inset 4px 4px 8px #b9bcc0, inset -4px -4px 8px #ffffff;
+  border: 1px solid #d1d5db;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  max-width: 400px;
+  max-height: 280px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto;
 }
